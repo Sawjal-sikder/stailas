@@ -23,7 +23,7 @@ const SecondarySection = () => {
 
         {/* Text Section - ORDER SECOND ON LARGE SCREENS */}
         <div className="order-1 lg:order-2">
-          <h1 className="text-[20px] md:text-[40px] lg:text-[48px] font-bold pr-20 lg:pr-10">
+          <h1 className="text-[20px] text-primary md:text-[40px] lg:text-[48px] font-bold pr-20 lg:pr-10">
             How having an AI stylist changed my confidence
           </h1>
           <p className="py-5 text-[12px] md:text-[20px]">
