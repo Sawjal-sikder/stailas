@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "./Image";
-import Logo from "../assets/image/group 48.png"
+import Logo from "../assets/image/group-48.png"
 
 const SuccessComp = () => {
   return (
