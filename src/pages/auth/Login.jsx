@@ -6,17 +6,17 @@ import Logo from '../../assets/logo/logo.png';
 
 const Login = () => {
     return (
-        <div className="px-6 py-10 md:px-16 lg:px-28 bg-white min-h-screen flex">
-            <div className="flex justify-between gap-x-12 w-full">
+        <div className="px-6 py-20 md:px-16 lg:px-40 bg-white flex">
+            <div className="flex justify-between gap-x-36 w-full">
 
                 {/* Left Side (Form) */}
-                <div className="w-full lg:w-2/5 flex flex-col justify-center items-start">
-                    <Image src={Logo} alt="Logo" className="w-32 pb-8" />
+                <div className="w-full lg:w-5/12 flex flex-col">
+                    <Image src={Logo} alt="Logo" className="w-64 pb-10 ps-10" />
                     <LoginForm />
                 </div>
 
                 {/* Right Side (Image) */}
-                <div className="hidden lg:flex w-full lg:w-3/5 justify-center">
+                <div className="hidden lg:flex w-full lg:w-7/12 justify-center">
                     <Image src={LoginImage} alt="Login Image" className="w-full" />
                 </div>
 

@@ -5,9 +5,9 @@ import FloatingLabelInput from './FloatingLabelInput'
 
 const LoginForm = () => {
     return (
-        <div className='mt-10 py-6 text-primary font-inter w-full max-w-md mx-auto'>
-            <h2 className='text-2xl sm:text-3xl font-bold'>Login</h2>
-            <p className='text-sm sm:text-base font-extralight'>Login to access your Travelwise account</p>
+        <div className='mt-10 py-6 px-10 text-primary font-inter w-full'>
+            <h2 className='text-xl sm:text-5xl font-bold pb-4'>Login</h2>
+            <p className='text-sm sm:text-sm font-extralight'>Login to access your Travelwise account</p>
 
             <form action="" method="post" className='py-8 sm:py-10'>
                 <div className='pb-3'>
@@ -47,7 +47,11 @@ const LoginForm = () => {
                         </label>
                     </div>
 
-                    <div className='text-sm text-red-600 cursor-pointer'>Forgot Password</div>
+                    <NavLink
+                    to="/forgot-password"
+                    className='text-sm text-red-600 cursor-pointer'>
+                        Forgot Password
+                    </NavLink>
                 </div>
 
                 <Button text="LOGIN" type='submit' />
