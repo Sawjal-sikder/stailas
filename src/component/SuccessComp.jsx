@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "./Image";
-import Logo from "../assets/image/group-48.png"
+import groupImage from '../assets/image/group-48.png';
 
 const SuccessComp = () => {
   return (
@@ -12,7 +12,7 @@ const SuccessComp = () => {
       </p>
       <div className="flex justify-center items-center py-20">
             <Image
-              src={Logo}
+              src={groupImage}
               alt="Logo"
               className="w-40"
             />
