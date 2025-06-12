@@ -11,6 +11,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* For Main */}
         <Route path="/" element={<Home />} />
         {/* For authentication and authorizition */}
         <Route path="/login" element={<Login />} />
