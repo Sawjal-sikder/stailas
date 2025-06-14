@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/home/Home';
+import Chat from './pages/StailasChat/Chat.jsx';
 import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 import ForgotPassword from './pages/auth/ForgotPassword';
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         {/* For Main */}
         <Route path="/" element={<Home />} />
+        <Route path="/chat" element={<Chat />} />
         {/* For authentication and authorizition */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

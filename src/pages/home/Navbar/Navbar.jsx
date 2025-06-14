@@ -41,7 +41,7 @@ const Navbar = () => {
       {/* Navigation Links - Mobile Toggle */}
       {isMenuOpen && (
         <div className="lg:hidden mt-4 flex flex-col gap-3 font-inter  text-sm">
-          <NavLinkButton to="/" label="Your Outfits" />
+          <NavLinkButton to="/outfit" label="Your Outfits" />
           <NavLinkButton to="/chat" label="Stailas Chat" />
           <NavLinkButton to="/profile" label="My Profile" />
         </div>
