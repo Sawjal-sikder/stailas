@@ -5,7 +5,7 @@ import Button from '../../../component/Button'
 
 const WorkProcess = () => {
   return (
-    <div className='py-24 px-40'>
+    <div className='lg:py-24 lg:px-40 p-4'>
       <Header text="How it works" className="mb-20" />
       <Process />
       <div className='pt-16 text-center'>

@@ -8,30 +8,48 @@ import ArrowImage from "../../../assets/image/work/a1.png"
 import ArrowImage2 from "../../../assets/image/work/a2.png"
 
 const Process = () => {
-    return (
-        <div className='px-10 grid grid-cols-4 gap-x-36'>
-            {/* item */}
-            <div className='text-center flex flex-col items-center relative'>
-                <Image src={Image1} alt="Upload Image" className="" />
-                <p className='text-md text-primary font-inter pt-5'>Upload a few outfit photos</p>
-                <Image src={ArrowImage} alt="Upload Image 1" className="absolute top-0 -right-32 w-[200px]" />
-            </div>
-            <div className='text-center flex flex-col items-center relative'>
-                <Image src={Image2} alt="Upload Image 2" className="" />
-                <p className='text-md text-primary font-inter pt-5'>Get your Style Card</p>
-                <Image src={ArrowImage2} alt="Upload Image 2" className="absolute bottom-16 -right-32 w-[200px]" />
-            </div>
-            <div className='text-center flex flex-col items-center relative'>
-                <Image src={Image3} alt="Upload Image 3" className="" />
-                <p className='text-md text-primary font-inter pt-5'>Get your Style Card</p>
-                <Image src={ArrowImage} alt="Upload Image 1" className="absolute top-0 -right-32 w-[200px]" />
-            </div>
-            <div className='text-center flex flex-col items-center'>
-                <Image src={Image4} alt="Upload Image 4" className="" />
-                <p className='text-md text-primary font-inter pt-5'>Get your Style Card</p>
-            </div>
-        </div>
-    )
+  return (
+    <div className='px-4 md:px-10 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-x-36'>
+      {/* Step 1 */}
+      <div className='text-center flex flex-col items-center relative'>
+        <Image src={Image1} alt="Upload Image" className="w-40 h-auto sm:w-44" />
+        <p className='text-md text-primary font-inter pt-5'>Upload a few outfit photos</p>
+        <Image
+          src={ArrowImage}
+          alt="Arrow 1"
+          className="hidden lg:block absolute top-1/4 -right-40 w-48 -translate-y-1/2"
+        />
+      </div>
+
+      {/* Step 2 */}
+      <div className='text-center flex flex-col items-center relative'>
+        <Image src={Image2} alt="Style Card" className="w-40 h-auto sm:w-44" />
+        <p className='text-md text-primary font-inter pt-5'>Get your Style Card</p>
+        <Image
+          src={ArrowImage2}
+          alt="Arrow 2"
+          className="hidden lg:block absolute top-2/4 -right-40 w-48 -translate-y-1/2"
+        />
+      </div>
+
+      {/* Step 3 */}
+      <div className='text-center flex flex-col items-center relative'>
+        <Image src={Image3} alt="Style Suggestion" className="w-40 h-auto sm:w-44" />
+        <p className='text-md text-primary font-inter pt-5'>Try personalized outfits</p>
+        <Image
+          src={ArrowImage}
+          alt="Arrow 3"
+          className="hidden lg:block absolute top-1/4 -right-40 w-48 -translate-y-1/2"
+        />
+      </div>
+
+      {/* Step 4 */}
+      <div className='text-center flex flex-col items-center'>
+        <Image src={Image4} alt="Shop" className="w-40 h-auto sm:w-44" />
+        <p className='text-md text-primary font-inter pt-5'>Shop your favorite look</p>
+      </div>
+    </div>
+  )
 }
 
 export default Process

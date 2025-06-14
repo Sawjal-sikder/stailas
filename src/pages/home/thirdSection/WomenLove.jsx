@@ -10,7 +10,7 @@ import WomanImage4 from "../../../assets/image/woman/woman4.png"
 const WomenLove = () => {
   return (
     <div className="px-4 sm:px-8 md:px-16 lg:px-24">
-      <Header text="Why Women Love Stailas" className="mb-12" />
+      <Header text="Why Women Love Stailas" className="mb-6 lg:mb-12" />
       
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 pt-10">
         {/* item */}
