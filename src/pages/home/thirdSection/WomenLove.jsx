@@ -40,7 +40,7 @@ const WomenLove = () => {
         </div>
       </div>
       <div className='flex justify-center'>
-        <Button text="Start Now" className="mt-10 lg:mt-16 text-lg w-32 lg:w-64" />
+        <Button text="Start Now" className="mt-10 lg:mt-16 lg:w-64" />
       </div>
     </div>
   )
