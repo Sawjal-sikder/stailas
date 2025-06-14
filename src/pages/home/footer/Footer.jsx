@@ -4,7 +4,7 @@ import Logo from "../../../assets/logo/logo.png"
 import Facebook from ".././../../assets/image/footer/fb.png"
 import Instagram from ".././../../assets/image/footer/in.png"
 import Tiktok from ".././../../assets/image/footer/ti.png"
-import NavLinkButton from '../../../component/navbar/NavLinkButton'
+import NavLinkButton from '../../../component/navbar/NavLinkFooter'
 
 const Footer = () => {
   return (
