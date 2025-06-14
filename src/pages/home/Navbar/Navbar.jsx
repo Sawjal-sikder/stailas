@@ -22,12 +22,12 @@ const Navbar = () => {
 
         {/* Logo */}
         <NavLink to="/" className="mx-auto lg:mx-0 lg:mr-auto">
-          <Image src={Logo} alt="logo" className="w-20 md:w-36" />
+          <Image src={Logo} alt="logo" className="w-20 md:w-[192px]" />
         </NavLink>
 
         {/* Nav Links - Centered on Large Screens */}
         <div className="hidden lg:flex justify-center items-center gap-6 absolute left-1/2 transform -translate-x-1/2">
-          <NavLinkButton to="/" label="Your Outfits" />
+          <NavLinkButton to="/outfit" label="Your Outfits" />
           <NavLinkButton to="/chat" label="Stailas Chat" />
         </div>
 
