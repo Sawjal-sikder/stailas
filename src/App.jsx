@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Chat from './pages/StailasChat/Chat.jsx';
 import Outfits from './pages/Outfits/Outfits.jsx';
+import MyOutfit from './pages/myoutfits/MyOutfit.jsx';
 import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 import ForgotPassword from './pages/auth/ForgotPassword';
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/outfit" element={<Outfits />} />
+        <Route path="/myoutfit" element={<MyOutfit />} />
         {/* For authentication and authorizition */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

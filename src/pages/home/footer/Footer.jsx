@@ -13,9 +13,9 @@ const Footer = () => {
         <Image src={Logo} alt="Logo" className="w-[139px] lg:w-[234px] mx-auto mb-6" />
       </div>
       <div className='flex flex-row justify-center items-center gap-x-4 md:gap-8 py-6 '>
-        <NavLinkButton to={"/"} label="Home" className="text-white text-[12px] lg:text-[20px]" />
-        <NavLinkButton to={"/"} label="Your Outfits" className="text-white text-[12px] lg:text-[20px]" />
-        <NavLinkButton to={"/login"} label="Stailas Chat" className="text-white text-[12px] lg:text-[20px]" />
+        <NavLinkButton to={"/login"} label="Home" className="text-white text-[12px] lg:text-[20px]" />
+        <NavLinkButton to={"/outfit"} label="Your Outfits" className="text-white text-[12px] lg:text-[20px]" />
+        <NavLinkButton to={"/chat"} label="Stailas Chat" className="text-white text-[12px] lg:text-[20px]" />
       </div>
       <div className='flex flex-row justify-center items-center gap-x-5 md:gap-x-16 border-b border-white pb-10'>
         <Image src={Facebook} alt="Facebook" className="w-6 lg:w-9 " />
