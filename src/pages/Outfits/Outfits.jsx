@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../home/Navbar/Navbar";
+import Footer from "../home/footer/Footer";
 import Header from "../../component/Header";
 import ImageFileUpload from "../../component/ImageFileUpload";
 import Button from "../../component/Button";
@@ -8,11 +9,10 @@ import ImagteIcon1 from '../../assets/image/outfit/photo.png'
 import ImagteIcon2 from '../../assets/image/outfit/ai.png'
 import ImagteIcon3 from '../../assets/image/outfit/light.png'
 import ImagteIcon4 from '../../assets/image/outfit/prog.png'
-import Footer from "../home/footer/Footer";
 
 const Outfits = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <div className="px-[417px] mx-auto mt-10">
         <div className="px-[197px] text-center">
@@ -33,24 +33,30 @@ const Outfits = () => {
           </div>
         </div>
         <div className="flex justify-between items-center pb-7 relative">
-            <div className="flex flex-col items-center w-[200px]">
-                  <Image src={ImagteIcon1} className={"w-[100px] h-[100px]"} />
-                  <p className="text-[20px] font-inter text-center">Upload Photos</p>
-                  <Image src={ImagteIcon4} className={" absolute top-1/4 right-52"} />
-            </div>
-            <div className="flex flex-col items-center w-[200px]">
-                  <Image src={ImagteIcon2} className={"w-[100px] h-[100px]"} />
-                  <p className="text-[20px] font-inter text-center"> Ai Analyzes Style</p>
-                  <Image src={ImagteIcon4} className={" absolute top-1/4 left-52"} />
-            </div>
-            <div className="flex flex-col items-center w-[200px]">
-                  <Image src={ImagteIcon3} className={"w-[100px] h-[100px]"} />
-                  <p className="text-[20px] font-inter text-center">Get Personalized Insights</p>
-            </div>
+          <div className="flex flex-col items-center w-[200px]">
+            <Image src={ImagteIcon1} className={"w-[100px] h-[100px]"} />
+            <p className="text-[20px] font-inter text-center">Upload Photos</p>
+            <Image src={ImagteIcon4} className={" absolute top-1/4 right-52"} />
+          </div>
+          <div className="flex flex-col items-center w-[200px]">
+            <Image src={ImagteIcon2} className={"w-[100px] h-[100px]"} />
+            <p className="text-[20px] font-inter text-center">
+              {" "}
+              Ai Analyzes Style
+            </p>
+            <Image src={ImagteIcon4} className={" absolute top-1/4 left-52"} />
+          </div>
+          <div className="flex flex-col items-center w-[200px]">
+            <Image src={ImagteIcon3} className={"w-[100px] h-[100px]"} />
+            <p className="text-[20px] font-inter text-center">
+              Get Personalized Insights
+            </p>
+          </div>
         </div>
-      </div>
+      </div>    
+
       <Footer />
-    </div>
+    </>
   );
 };
 

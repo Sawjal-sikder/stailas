@@ -17,8 +17,8 @@ function App() {
         {/* For Main */}
         <Route path="/" element={<Home />} />
         <Route path="/chat" element={<Chat />} />
-        <Route path="/outfit" element={<Outfits />} />
-        <Route path="/myoutfit" element={<MyOutfit />} />
+        <Route path="/myoutfit" element={<Outfits />} />
+        <Route path="/outfit" element={<MyOutfit />} />
         {/* For authentication and authorizition */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
