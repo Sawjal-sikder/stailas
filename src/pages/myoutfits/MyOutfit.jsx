@@ -11,7 +11,7 @@ const MyOutfit = () => {
   return (
     <div>
       <Navbar />
-      <div className="px-4 md:px-16 lg:px-40 py-[22px]">
+      <div className="px-4 md:px-16 lg:px-40 py-[22px] mb-12">
         <Header text={"Your outfits"} className="text-center" />
         <OutfitsList />
         <OutfitsList />
