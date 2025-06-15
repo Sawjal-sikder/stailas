@@ -15,7 +15,7 @@ const Footer = () => {
       <div className='flex flex-row justify-center items-center gap-x-4 md:gap-8 py-6 '>
         <NavLinkButton to={"/"} label="Home" className="text-white text-[12px] lg:text-[20px]" />
         <NavLinkButton to={"/"} label="Your Outfits" className="text-white text-[12px] lg:text-[20px]" />
-        <NavLinkButton to={"/"} label="Stailas Chat" className="text-white text-[12px] lg:text-[20px]" />
+        <NavLinkButton to={"/login"} label="Stailas Chat" className="text-white text-[12px] lg:text-[20px]" />
       </div>
       <div className='flex flex-row justify-center items-center gap-x-5 md:gap-x-16 border-b border-white pb-10'>
         <Image src={Facebook} alt="Facebook" className="w-6 lg:w-9 " />
