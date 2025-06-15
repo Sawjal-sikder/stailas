@@ -5,9 +5,11 @@ import MenuIcon from "../../../assets/logo/gg_menu-left.png";
 import UserIcon from "../../../assets/logo/user-icon.png";
 import Image from "../../../component/Image";
 import NavLinkButton from "../../../component/navbar/NavLinkButton";
+import ProfileView from "./ProfileView";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   return (
     <div className="px-4 md:px-10 lg:px-40 py-4">
@@ -32,18 +34,28 @@ const Navbar = () => {
         </div>
 
         {/* User Info - Right on Large Screens */}
-        <div className="hidden lg:flex bg-secondary px-6 py-2 rounded-full items-center gap-3 ml-auto">
+        <div
+          onClick={() => setIsProfileOpen(true)}
+          className="hidden lg:flex bg-secondary px-6 py-2 rounded-full items-center gap-3 ml-auto cursor-pointer"
+        >
           <Image src={UserIcon} alt="user-icon" className="w-7 h-7" />
           <p className="text-white font-inter font-medium">Ovie</p>
         </div>
+        <ProfileView
+          isProfileOpen={isProfileOpen}
+          setIsProfileOpen={setIsProfileOpen}
+        />
       </div>
 
       {/* Navigation Links - Mobile Toggle */}
       {isMenuOpen && (
-        <div className="lg:hidden mt-4 flex flex-col gap-3 font-inter  text-sm">
+        <div className="lg:hidden mt-4 flex flex-col gap-3 font-inter text-sm">
           <NavLinkButton to="/outfit" label="Your Outfits" />
           <NavLinkButton to="/chat" label="Stailas Chat" />
-          <NavLinkButton to="/profile" label="My Profile" />
+          <NavLinkButton
+            label="My Profile"
+            onClick={() => setIsProfileOpen(true)}
+          />
         </div>
       )}
     </div>
