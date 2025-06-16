@@ -15,6 +15,10 @@ import AdminForgotPassword from './pages/dashboard/admin/AdminForgotPassword.jsx
 import AdminVerifyPass from './pages/dashboard/admin/AdminVerifyPass.jsx';
 import AdminNewPassword from './pages/dashboard/admin/AdminNewPassword.jsx';
 import AdminPasswordSuccess from './pages/dashboard/admin/AdminPasswordSuccess.jsx';
+// Dashboard
+import Dashboard from './pages/dashboard/dashoard/Dashboard.jsx';
+import UserManagement from './pages/dashboard/dashoard/page/UserManagement.jsx';
+import Administrators from './pages/dashboard/dashoard/page/Administrators.jsx';
 
 function App() {
   return (
@@ -33,12 +37,16 @@ function App() {
         <Route path="/forgot-password/verify" element={<ForgotPassVerfify />} />
         <Route path="/new-password" element={<SetNewPassword />} />
         <Route path="/password-success" element={<Success />} />
-        {/* For admin panel */}
+        {/* For admin panel authentication and authorizition */}
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/forgot-password" element={<AdminForgotPassword />} />
         <Route path="/admin/verify-code" element={<AdminVerifyPass />} />
         <Route path="/admin/new-password" element={<AdminNewPassword />} />
         <Route path="/admin/success" element={<AdminPasswordSuccess />} />
+        {/* Dashboard */}
+        <Route path="/dashoard/home" element={<Dashboard />} />
+        <Route path="/dashoard/user-management" element={<UserManagement />} />
+        <Route path="/dashoard/administrators" element={<Administrators />} />
       </Routes>
     </Router>
   );
