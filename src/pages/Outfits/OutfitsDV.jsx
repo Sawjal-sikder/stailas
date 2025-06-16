@@ -4,6 +4,8 @@ import Button from "../../component/Button";
 import Image from "../../component/Image";
 import UploadImage from "../../assets/image/outfit/solar_upload-bold.png";
 import OutfitsList from "../myoutfits/OutfitsList";
+import { NavLink } from 'react-router-dom';
+
 
 const OutfitsDV = () => {
   return (
@@ -21,7 +23,7 @@ const OutfitsDV = () => {
           </div>
           <div className="text-end">
             <div className="font-inter">
-              <label
+              <NavLink to={"/myoutfit"}
                 htmlFor="file-upload"
                 className="inline-block cursor-pointer px-5 py-4 text-white text-[12px] lg:text-[16px] bg-secondary font-inter rounded-full transition"
               >
@@ -31,8 +33,7 @@ const OutfitsDV = () => {
                   className="inline-block ml-2 w-5 h-5 mx-2"
                 />
                 Upload another outfit
-              </label>
-              <input id="file-upload" type="file" className="hidden" />
+              </NavLink>
             </div>
           </div>
         </div>
