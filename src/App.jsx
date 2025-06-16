@@ -3,6 +3,7 @@ import Home from './pages/home/Home';
 import Chat from './pages/StailasChat/Chat.jsx';
 import Outfits from './pages/Outfits/Outfits.jsx';
 import MyOutfit from './pages/myoutfits/MyOutfit.jsx';
+import OutfitsDetails from './pages/Outfits/OutfitsDetails.jsx';
 import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 import ForgotPassword from './pages/auth/ForgotPassword';
@@ -19,6 +20,7 @@ function App() {
         <Route path="/chat" element={<Chat />} />
         <Route path="/myoutfit" element={<Outfits />} />
         <Route path="/outfit" element={<MyOutfit />} />
+        <Route path="/outfit-details" element={<OutfitsDetails />} />
         {/* For authentication and authorizition */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
