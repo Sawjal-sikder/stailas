@@ -10,6 +10,11 @@ import ForgotPassword from './pages/auth/ForgotPassword';
 import ForgotPassVerfify from './pages/auth/ForgotPassVerfify';
 import SetNewPassword from './pages/auth/SetNewPassword';
 import Success from './pages/auth/Success';
+import AdminLogin from './pages/dashboard/admin/AdminLogin.jsx';
+import AdminForgotPassword from './pages/dashboard/admin/AdminForgotPassword.jsx';
+import AdminVerifyPass from './pages/dashboard/admin/AdminVerifyPass.jsx';
+import AdminNewPassword from './pages/dashboard/admin/AdminNewPassword.jsx';
+import AdminPasswordSuccess from './pages/dashboard/admin/AdminPasswordSuccess.jsx';
 
 function App() {
   return (
@@ -28,6 +33,12 @@ function App() {
         <Route path="/forgot-password/verify" element={<ForgotPassVerfify />} />
         <Route path="/new-password" element={<SetNewPassword />} />
         <Route path="/password-success" element={<Success />} />
+        {/* For admin panel */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/forgot-password" element={<AdminForgotPassword />} />
+        <Route path="/admin/verify-code" element={<AdminVerifyPass />} />
+        <Route path="/admin/new-password" element={<AdminNewPassword />} />
+        <Route path="/admin/success" element={<AdminPasswordSuccess />} />
       </Routes>
     </Router>
   );
