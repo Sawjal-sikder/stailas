@@ -3,6 +3,7 @@ import Header from "../../../component/Header";
 import Image from "../../../component/Image";
 import CartImage from "../../../assets/image/service/cart.png";
 import Button from "../../../component/Button";
+import { NavLink } from "react-router-dom";
 
 const Cart = () => {
   return (
@@ -29,10 +30,14 @@ const Cart = () => {
           <p className="text-[12px] lg:text-[20px] lg:pt-5">
             No pressure. Just practical, beautiful style—your way.
           </p>
-          <Button
-            text="Start With One Outfit"
-            className="hidden lg:block lg:w-[345px] mt-10 p-5"
-          />
+          <div className="flex">
+            <NavLink to={"/outfit"}>
+            <Button
+              text="Start With One Outfit"
+              className="hidden lg:block lg:w-[345px] mt-10 p-5 rounded-lg"
+            />
+          </NavLink>
+          </div>
         </div>
       </div>
     </div>

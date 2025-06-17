@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../../../component/Header'
 import Process from './Process'
 import Button from '../../../component/Button'
+import { NavLink } from 'react-router-dom'
 
 const WorkProcess = () => {
   return (
@@ -9,7 +10,9 @@ const WorkProcess = () => {
       <Header text="How it works" className="mb-20" />
       <Process />
       <div className='pt-16 text-center'>
-        <Button text={"Ask Anything"} className="text-lg w-32 lg:w-64" />
+        <NavLink to={"/chat"}>
+        <Button text={"Ask Anything"} className="text-lg w-32 lg:w-64 rounded-lg" />
+        </NavLink>
       </div>
     </div>
   )

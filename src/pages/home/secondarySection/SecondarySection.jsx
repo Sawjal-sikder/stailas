@@ -17,7 +17,7 @@ const SecondarySection = () => {
           />
           <Button
             text="Watch this Video"
-            className="absolute bottom-6 right-32 md:bottom-14 md:right-60 text-[12px] lg:text-[16px] px-0 w-[140px] md:w-80 py-3 md:py-4"
+            className="absolute bottom-6 right-32 md:bottom-14 md:right-60 text-[12px] lg:text-[16px] px-0 w-[140px] md:w-80 py-3 md:py-4 rounded-lg"
           />
         </div>
 

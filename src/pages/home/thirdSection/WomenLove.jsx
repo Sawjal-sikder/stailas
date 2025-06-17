@@ -6,6 +6,7 @@ import WomanImage1 from "../../../assets/image/woman/woman1.png"
 import WomanImage2 from "../../../assets/image/woman/woman2.png"
 import WomanImage3 from "../../../assets/image/woman/woman3.png"
 import WomanImage4 from "../../../assets/image/woman/woman4.png"
+import { NavLink } from 'react-router-dom'
 
 const WomenLove = () => {
   return (
@@ -40,7 +41,9 @@ const WomenLove = () => {
         </div>
       </div>
       <div className='flex justify-center'>
-        <Button text="Start Now" className="mt-10 lg:mt-16 lg:w-64" />
+        <NavLink to={"/myoutfit"} >       
+        <Button text="Start Now" className="mt-10 lg:mt-16 lg:w-64 rounded-lg" />
+      </NavLink>
       </div>
     </div>
   )
