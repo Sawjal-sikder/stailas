@@ -64,7 +64,7 @@ const Home = () => {
                               placeholder="Enter your system prompt here..."
                         ></textarea>
                         
-                        <Button text={"Save"} className="mt-3 font-light w-[220px]" />
+                        <Button text={"Save"} className="rounded-lg mt-3 font-light w-[220px]" />
                   </form>
             </div>
             <div>
@@ -75,7 +75,7 @@ const Home = () => {
                               placeholder="Enter your system prompt here..."
                         ></textarea>
                         
-                        <Button text={"Save"} className="mt-3 font-light w-[220px]" />
+                        <Button text={"Save"} className="rounded-lg mt-3 font-light w-[220px]" />
                   </form>
             </div>
         </div>

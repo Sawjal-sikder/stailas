@@ -25,7 +25,7 @@ if (!editUser) return null;
                                    <div onClick={() => setEditUser(false)} className="cursor-pointer">
                                      <Button text={"Cancel"} className="mt-4 w-full bg-white border border-secondary text-black font-bold rounded-md px-4 py-2" />
                                    </div>
-                                    <Button text={"Create"} type='submit' className="mt-4 bg-primary text-white font-bold rounded-md px-4 py-2" />
+                                    <Button text={"Update"} type='submit' className="mt-4 bg-primary text-white font-bold rounded-md px-4 py-2" />
 
                         </form>
 

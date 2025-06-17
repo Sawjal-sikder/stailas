@@ -7,10 +7,12 @@ import trushImage from "../../../../assets/logo/trush.png";
 import Button from "../../../../component/Button";
 import AdminCreateUser from "./AdminComponent/AdminCreateUser";
 import AdminEditUser from "./AdminComponent/AdminEditUser";
+import DeleteConform from "./AdminComponent/DeleteConform";
 
 const Administrators = () => {
       const [createUser, setCreateUser] = useState(false);
       const [editUser, setEditUser] = useState(false);
+      const [isDeleted, setIsDeleted] = useState(false);
   const userlist = [
     {
       id: 1,
@@ -71,7 +73,9 @@ return (
                                                       <td className="px-4 py-2">{user.Phone}</td>
                                                       <td className="px-4 py-2">{user.roll}</td>
                                                       <td className="px-4 py-2 flex gap-1 items-center">
-                                                            <img src={trushImage} alt="View" className="w-8 h-8 object-cover" />
+                                                            <div className="cursor-pointer" onClick={() => setIsDeleted(true)}>
+                                                                  <img src={trushImage} alt="View" className="w-8 h-8 object-cover" />
+                                                            </div>
                                                             <div className="cursor-pointer" onClick={() => setEditUser(true)}>
                                                                   <img src={editImage} alt="Action" className="w-8 h-8 object-cover" />
                                                             </div>
@@ -85,6 +89,8 @@ return (
             </div>
             <AdminCreateUser createUser={createUser} setCreateUser={setCreateUser} />
             <AdminEditUser editUser={editUser} setEditUser={setEditUser} />
+            <DeleteConform isDeleted={isDeleted} setIsDeleted={setIsDeleted} />
+
       </div>
 );
 };
