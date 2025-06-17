@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import DashboardNav from "../component/DashboardNav";
 import DashboardSidebar from "../component/DashboardSidebar";
 import ProfileImage from "../../../../assets/logo/Profile.png";
 import editImage from "../../../../assets/logo/edit.png";
 import trushImage from "../../../../assets/logo/trush.png";
 import Button from "../../../../component/Button";
+import AdminCreateUser from "./AdminComponent/AdminCreateUser";
+import AdminEditUser from "./AdminComponent/AdminEditUser";
 
 const Administrators = () => {
+      const [createUser, setCreateUser] = useState(false);
+      const [editUser, setEditUser] = useState(false);
   const userlist = [
     {
       id: 1,
@@ -37,7 +41,9 @@ return (
             >
                   <div className="min-h-[calc(100vh-138px)] text-primary font-inter">
                         <div className="bg-white rounded-xl px-7 py-5">
-                              <Button text={"+ New Administrators Profile Create "} className="mb-4 font-light" />
+                              <div onClick={() => setCreateUser(true)} className="cursor-pointer">
+                                    <Button text={"+ New Administrators Profile Create "} className="mb-4 font-light rounded-md" />
+                              </div>
                               <table className="min-w-full border border-gray-200 rounded-lg overflow-hidden">
                                     <thead className="">
                                           <tr>
@@ -65,8 +71,10 @@ return (
                                                       <td className="px-4 py-2">{user.Phone}</td>
                                                       <td className="px-4 py-2">{user.roll}</td>
                                                       <td className="px-4 py-2 flex gap-1 items-center">
-                                                            <img src={trushImage} alt="View" className="w-8 h-8 object-cover" />                                                      
-                                                            <img src={editImage} alt="Action" className="w-8 h-8 object-cover" />
+                                                            <img src={trushImage} alt="View" className="w-8 h-8 object-cover" />
+                                                            <div className="cursor-pointer" onClick={() => setEditUser(true)}>
+                                                                  <img src={editImage} alt="Action" className="w-8 h-8 object-cover" />
+                                                            </div>
                                                       </td>
                                                 </tr>
                                           ))}
@@ -75,6 +83,8 @@ return (
                         </div>
                   </div>
             </div>
+            <AdminCreateUser createUser={createUser} setCreateUser={setCreateUser} />
+            <AdminEditUser editUser={editUser} setEditUser={setEditUser} />
       </div>
 );
 };

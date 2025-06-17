@@ -3,9 +3,11 @@ import Image from "../../../../../component/Image";
 import UserImage from "../../../../../assets/logo/user-icon.png";
 import Button from "../../../../../component/Button";
 import ProfileAction from "./ProfileAction";
+import AdminPasswordChange from "./AdminPasswordChange";
 
 const Profile = ({ open, setOpen }) => {
       const [openProfile, setOpenProfile] = useState(false);
+      const [isChangePassword, setIsChangePassword] = useState(false);
 return (
       <div>
             {open && (
@@ -28,7 +30,7 @@ return (
                                     <div className=" text-lg text-primary font-semibold flex items-center">Profile</div>
                                     <div className=" text-right px-4 text-lg text-secondary font-bold flex items-center">{">"}</div>
                               </div>
-                              <div className="flex justify-between items-center py-4 cursor-pointer">
+                              <div className="flex justify-between items-center py-4 cursor-pointer" onClick={() => setIsChangePassword(!isChangePassword)}>
                                     <div className=" text-lg text-primary font-semibold flex items-center">Change Password</div>
                                     <div className=" text-right px-4 text-lg text-secondary font-bold flex items-center">{">"}</div>
                               </div>
@@ -39,6 +41,7 @@ return (
                   </div>
             )}
             <ProfileAction openProfile={openProfile} setOpenProfile={setOpenProfile} />
+            <AdminPasswordChange isChangePassword={isChangePassword} setIsChangePassword={setIsChangePassword} />
       </div>
 );
 };

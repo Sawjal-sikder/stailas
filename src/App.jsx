@@ -30,6 +30,7 @@ function App() {
         <Route path="/myoutfit" element={<Outfits />} />
         <Route path="/outfit" element={<MyOutfit />} />
         <Route path="/outfit-details" element={<OutfitsDetails />} />
+
         {/* For authentication and authorizition */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
@@ -37,12 +38,14 @@ function App() {
         <Route path="/forgot-password/verify" element={<ForgotPassVerfify />} />
         <Route path="/new-password" element={<SetNewPassword />} />
         <Route path="/password-success" element={<Success />} />
+
         {/* For admin panel authentication and authorizition */}
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/forgot-password" element={<AdminForgotPassword />} />
         <Route path="/admin/verify-code" element={<AdminVerifyPass />} />
         <Route path="/admin/new-password" element={<AdminNewPassword />} />
         <Route path="/admin/success" element={<AdminPasswordSuccess />} />
+        
         {/* Dashboard */}
         <Route path="/dashoard/home" element={<Dashboard />} />
         <Route path="/dashoard/user-management" element={<UserManagement />} />

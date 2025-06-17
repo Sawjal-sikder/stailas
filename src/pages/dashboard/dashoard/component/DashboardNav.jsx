@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "../../../../component/Image";
 import logo from "../../../../assets/logo/logo.png";
 import User_logo from "../../../../assets/logo/user-icon.png";
@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 import Profile from "../page/AdminComponent/Profile";
 
 const DashboardNav = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="relative">
