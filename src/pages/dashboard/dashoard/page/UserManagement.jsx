@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import DashboardNav from "../component/DashboardNav";
 import DashboardSidebar from "../component/DashboardSidebar";
 import ProfileImage from "../../../../assets/logo/Profile.png";
 import converImage from "../../../../assets/logo/conver.png";
 import viewImage from "../../../../assets/logo/view.png";
 import actionImage from "../../../../assets/logo/action.png";
+import AdminOutfit from "./AdminComponent/AdminOutfit";
+import AdminMessage from "./AdminComponent/AdminMessage";
 
 const UserManagement = () => {
+      const [isOpenOutfit, setIsOpenOutfit] = useState(false);
+      const [isMessage, setIsMessage] = useState(false);
   const userlist = [
     {
       id: 1,
@@ -75,10 +79,10 @@ return (
                                                       <td className="px-4 py-2">{user.anonymous}</td>
                                                       <td className="px-4 py-2">{user.create_at}</td>
                                                       <td className="px-4 py-2">{user.achive}</td>
-                                                      <td className="px-4 py-2">
+                                                      <td className="px-4 py-2 cursor-pointer" onClick={() => setIsMessage(!isMessage)}>
                                                             <img src={converImage} alt="Conversation" className="w-8 h-8 object-cover" />
                                                       </td>
-                                                      <td className="px-4 py-2 flex gap-1 items-center">
+                                                      <td className="px-4 py-2 flex gap-1 items-center cursor-pointer" onClick={() => setIsOpenOutfit(!isOpenOutfit)}>
                                                             <p>8</p>
                                                             <img src={viewImage} alt="View" className="w-8 h-8 object-cover" />
                                                       </td>
@@ -92,6 +96,8 @@ return (
                         </div>
                   </div>
             </div>
+            <AdminOutfit isOpenOutfit={isOpenOutfit} setIsOpenOutfit={setIsOpenOutfit} />
+            <AdminMessage isMessage={isMessage} setIsMessage={setIsMessage} />
       </div>
 );
 };
