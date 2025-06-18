@@ -32,7 +32,7 @@ const Hero = () => {
       </div>
       <Button
         text="Try It Free"
-        className="absolute top-[690px] left-36 lg:top-[550px] lg:left-40 w-[110px] lg:w-[345px] text-[12px] lg:text-[16px] px-1 rounded-lg "
+        className="absolute top-[650px] left-36 lg:top-[550px] lg:left-40 w-[110px] lg:w-[345px] text-[12px] lg:text-[16px] px-1 rounded-lg "
       />
       {/* Right Side: Phone Image */}
       <Image
