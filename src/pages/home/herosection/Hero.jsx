@@ -38,7 +38,7 @@ const Hero = () => {
       <Image
         src={PhoneImage}
         alt="PhoneImage"
-        className="absolute left-36 top-48 lg:rigtht-0 lg:top-[310px] lg:w-[650px] w-96"
+        className="absolute left-36 top-48 lg:left-[1200px] lg:top-[310px] lg:w-[650px] w-96"
       />
     </div>
   );
