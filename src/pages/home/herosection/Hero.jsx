@@ -8,19 +8,18 @@ import Image from "../../../component/Image";
 
 const Hero = () => {
   return (
-    <div className="relative w-full">
+    <div className="relative overflow-hidden w-full">
       {/* Background Banner Image */}
-      <picture>
-        {/* Image for large screens (lg and up) */}
-        <source media="(min-width: 1024px)" srcSet={BanarImage} />
-        {/* Image for smaller screens */}
-        <img
-          src={BanarImageSm}
-          alt="Hero Banner"
-          className="h-[616px] lg:h-auto w-full "
-          style={{ filter: "brightness(0.8)" }}
-        />
-      </picture>
+      {/* Mobile View */}
+      <div className="block md:hidden">
+        <img src={BanarImageSm} alt="Hero Banner" className="h-[616px] w-full object-cover" />
+      </div>
+
+      {/* Desktop View */}
+      <div className="hidden md:block">
+        <img src={BanarImage} alt="Hero Banner" className="w-full" />
+      </div>
+
 
       {/* Overlay: Flex container to split left/right */}
       <div className="absolute left-0 top-0 lg:left-20 lg:top-64 px-6 md:px-20">
@@ -39,7 +38,7 @@ const Hero = () => {
       <Image
         src={PhoneImage}
         alt="PhoneImage"
-        className="absolute left-36 top-48 lg:left-[1200px] lg:top-[310px] lg:w-[650px] w-96"
+        className="absolute left-36 top-48 lg:rigtht-0 lg:top-[310px] lg:w-[650px] w-96"
       />
     </div>
   );
