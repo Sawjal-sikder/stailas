@@ -30,7 +30,7 @@ const Process = () => {
         <Image
           src={ArrowImage2}
           alt="Arrow 2"
-          className="rotate-[135deg] lg:rotate-0 absolute top-2/4 right-28 lg:-right-40 w-32 lg:w-48 -translate-y-1/2"
+          className="rotate-[135deg] lg:rotate-0 absolute top-2/4 right-32 lg:-right-40 w-32 lg:w-48 -translate-y-1/2"
         />
       </div>
       <div className='lg:hidden'></div>

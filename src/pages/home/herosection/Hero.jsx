@@ -12,7 +12,7 @@ const Hero = () => {
       {/* Background Banner Image */}
       {/* Mobile View */}
       <div className="block md:hidden">
-        <img src={BanarImageSm} alt="Hero Banner" className="h-[616px] w-full object-cover" />
+        <img src={BanarImageSm} alt="Hero Banner" className="w-full object-cover" />
       </div>
 
       {/* Desktop View */}
@@ -32,13 +32,13 @@ const Hero = () => {
       </div>
       <Button
         text="Try It Free"
-        className="absolute top-[550px] left-36 lg:top-[550px] lg:left-40 w-[110px] lg:w-[345px] text-[12px] lg:text-[16px] px-1 rounded-lg "
+        className="absolute top-[690px] left-36 lg:top-[550px] lg:left-40 w-[110px] lg:w-[345px] text-[12px] lg:text-[16px] px-1 rounded-lg "
       />
       {/* Right Side: Phone Image */}
       <Image
         src={PhoneImage}
         alt="PhoneImage"
-        className="absolute left-36 top-48 lg:left-[1200px] lg:top-[310px] lg:w-[650px] w-96"
+        className="absolute left-28 top-[310px] lg:left-[1200px] lg:top-[310px] lg:w-[650px] w-[400px]"
       />
     </div>
   );
