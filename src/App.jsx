@@ -47,9 +47,9 @@ function App() {
         <Route path="/admin/success" element={<AdminPasswordSuccess />} />
         
         {/* Dashboard */}
-        <Route path="/dashoard/home" element={<Dashboard />} />
-        <Route path="/dashoard/user-management" element={<UserManagement />} />
-        <Route path="/dashoard/administrators" element={<Administrators />} />
+        <Route path="/dashboard/home" element={<Dashboard />} />
+        <Route path="/dashboard/user-management" element={<UserManagement />} />
+        <Route path="/dashboard/administrators" element={<Administrators />} />
       </Routes>
     </Router>
   );
