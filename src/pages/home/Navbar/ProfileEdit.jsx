@@ -35,11 +35,11 @@ const ProfileEdit = ({ isEditProfile, setIsEditProfile }) => {
           </h4>
         </div>
 
-        <form className="py-6 px-2 sm:px-[30px] grid grid-cols-2 gap-4 items-center text-sm sm:text-[18px] font-inter text-primary">
+        <form className="py-6 px-2 sm:px-[30px] grid grid-cols-12 gap-4 items-center text-sm sm:text-[18px] font-inter text-primary">
           {/* Name */}
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 col-span-3"
           >
             Name
           </label>
@@ -48,13 +48,13 @@ const ProfileEdit = ({ isEditProfile, setIsEditProfile }) => {
             id="name"
             name="name"
             defaultValue="Ovie Rahaman Sheikh"
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+            className="mt-1 block w-full border col-span-9 border-gray-300 rounded-md shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
           />
 
           {/* Email */}
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 col-span-3"
           >
             Email
           </label>
@@ -63,13 +63,13 @@ const ProfileEdit = ({ isEditProfile, setIsEditProfile }) => {
             id="email"
             name="email"
             defaultValue="ovierahaman1@gmail.com"
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+            className="mt-1 block w-full border border-gray-300 col-span-9 rounded-md shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
           />
 
           {/* Phone */}
           <label
             htmlFor="phone"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 col-span-3"
           >
             Phone
           </label>
@@ -78,13 +78,13 @@ const ProfileEdit = ({ isEditProfile, setIsEditProfile }) => {
             id="phone"
             name="phone"
             defaultValue="+88084454556444"
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+            className="mt-1 block w-full border border-gray-300 col-span-9 rounded-md shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
           />
 
           {/* Image */}
           <label
             htmlFor="Image"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 col-span-3"
           >
             Image
           </label>
@@ -92,21 +92,21 @@ const ProfileEdit = ({ isEditProfile, setIsEditProfile }) => {
             type="file"
             id="Image"
             name="Image"
-            className="mt-1 block w-full border text-xs border-gray-300 rounded-md shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+            className="mt-1 block w-full border text-xs border-gray-300 col-span-9 rounded-md shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
             accept="image/*"
           />
 
           {/* Submit button spans both columns */}
-          <div className="col-span-2 mt-4 text-right flex gap-x-5 items-center">
+          <div className="col-span-12 mt-4 text-right flex gap-x-5 items-center">
             <button
               onClick={() => setIsEditProfile(false)}
-              className="bg-white text-secondary border border-secondary text-[16px] px-6 w-full py-3 rounded hover:bg-primary-dark transition"
+              className="bg-white text-secondary border border-secondary text-[16px] px-6 w-full py-3 rounded hover:bg-primary-dark transition col-span-6"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="bg-secondary text-white text-[16px] px-6 w-full py-3 rounded hover:bg-primary-dark transition"
+              className="bg-secondary text-white text-[16px] px-6 w-full py-3 rounded hover:bg-primary-dark transition col-span-6"
             >
               Update
             </button>

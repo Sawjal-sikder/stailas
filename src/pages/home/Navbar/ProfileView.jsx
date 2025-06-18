@@ -32,14 +32,17 @@ const ProfileView = ({ isProfileOpen, setIsProfileOpen }) => {
             </div>
 
             {/* Profile Info */}
-            <div className="py-6 px-2 sm:px-[30px] grid grid-cols-2 gap-3 sm:gap-4 items-center text-sm sm:text-[18px] font-inter text-primary">
-              <div>Name</div>
-              <div>Ovie Rahaman Sheikh</div>
-              <div>Email</div>
-              <div>ovierahaman1@gmail.com</div>
-              <div>Phone</div>
-              <div>+88084454556444</div>
+            <div className="py-6 px-2 sm:px-[30px] grid overflow-auto grid-cols-12 gap-3 sm:gap-4 items-center text-sm sm:text-[18px] font-inter text-primary">
+              <div className="col-span-3">Name</div>
+              <div className="col-span-9">Ovie Rahaman Sheikh</div>
+
+              <div className="col-span-3">Email</div>
+              <div className="col-span-9">ovierahaman1@gmail.com</div>
+
+              <div className="col-span-3">Phone</div>
+              <div className="col-span-9">+88084454556444</div>
             </div>
+
 
             {/* Action Buttons */}
             <div className="py-4 px-2 sm:px-[30px] grid grid-cols-2 gap-3 sm:gap-4">
