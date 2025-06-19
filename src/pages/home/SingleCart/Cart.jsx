@@ -16,10 +16,12 @@ const Cart = () => {
         {/* On small screens, reverse order using flex-col-reverse */}
         <div className="order-2 md:order-1">
           <Image src={CartImage} alt={"Cart Image"} className="pt-5" />
-          <Button
-            text="Start With One Outfit"
-            className="lg:hidden my-4 text-center block mx-auto"
-          />
+          <NavLink to={"/outfit"}>
+            <Button
+              text="Start With One Outfit"
+              className="lg:hidden my-4 text-center block mx-auto"
+            />
+          </NavLink>
         </div>
         <div className="font-inter text-primary order-1 md:order-2">
           <p className="text-[12px] lg:text-[20px] py-4 pr-0 md:pr-14">

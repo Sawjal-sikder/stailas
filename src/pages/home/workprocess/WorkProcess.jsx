@@ -11,7 +11,7 @@ const WorkProcess = () => {
       <Process />
       <div className='pt-16 text-center'>
         <NavLink to={"/chat"}>
-        <Button text={"Ask Anything"} className="text-sm w-36 lg:w-64 rounded-lg" />
+          <Button text={"Ask Anything"} className="text-sm w-36 lg:w-64 rounded-lg" />
         </NavLink>
       </div>
     </div>

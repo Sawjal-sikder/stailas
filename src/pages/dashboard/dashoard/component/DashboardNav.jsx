@@ -24,7 +24,7 @@ const DashboardNav = () => {
             alt="User Logo"
             className="rounded-full w-[36px] sm:w-[44px] md:w-[50px] p-1.5 sm:p-2.5"
           />
-          <div className="hidden xs:block">
+          <div className="">
             <h4 className="text-xs sm:text-sm font-bold">Moni Roy</h4>
             <p className="text-[10px] sm:text-[12px]">Super Admin</p>
           </div>
