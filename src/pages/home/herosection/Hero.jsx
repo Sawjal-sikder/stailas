@@ -5,6 +5,7 @@ import PhoneImage from "../../../assets/image/hero/HeroPhone.png";
 import Button from "../../../component/Button";
 
 import Image from "../../../component/Image";
+import { NavLink } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -29,9 +30,10 @@ const Hero = () => {
           <h1 className="text-xl md:text-7xl font-bold">With AI.</h1>
         </div>
       </div>
-      <Button
-        text="Try It Free"
-        className={`
+      <NavLink to={"/outfit"}>
+        <Button
+          text="Try It Free"
+          className={`
             absolute left-36 lg:top-[550px] lg:left-40 w-[110px] lg:w-[345px] text-[12px] lg:text-[16px] px-1 rounded-lg
             top-[550px]
             sm:top-[650px]
@@ -39,7 +41,8 @@ const Hero = () => {
             [@media(min-width:375px)]:top-[650px]
             [@media(min-width:425px)]:top-[690px]
           `}
-      />
+        />
+      </NavLink>
       {/* Right Side: Phone Image */}}
       <Image
         src={PhoneImage}
