@@ -23,7 +23,6 @@ const Hero = () => {
 
       {/* Overlay: Flex container to split left/right */}
       <div className="absolute left-0 top-0 lg:left-20 lg:top-64 px-6 md:px-20">
-        {/* Left Side: Text */}
         <div className="text-white lg:space-y-2 font-inter py-8">
           <h1 className="text-xl md:text-7xl font-bold">Your Wardrobe.</h1>
           <h1 className="text-xl md:text-7xl font-bold">Reinvented.</h1>
@@ -32,13 +31,23 @@ const Hero = () => {
       </div>
       <Button
         text="Try It Free"
-        className="absolute top-[650px] left-36 lg:top-[550px] lg:left-40 w-[110px] lg:w-[345px] text-[12px] lg:text-[16px] px-1 rounded-lg "
+        className={`
+            absolute left-36 lg:top-[550px] lg:left-40 w-[110px] lg:w-[345px] text-[12px] lg:text-[16px] px-1 rounded-lg
+            top-[550px]
+            sm:top-[650px]
+            md:top-[650px]
+            [@media(min-width:375px)]:top-[650px]
+            [@media(min-width:425px)]:top-[690px]
+          `}
       />
-      {/* Right Side: Phone Image */}
+      {/* Right Side: Phone Image */}}
       <Image
         src={PhoneImage}
         alt="PhoneImage"
-        className="absolute left-28 top-[310px] lg:left-[1200px] lg:top-[310px] lg:w-[650px] w-[400px]"
+        className={`absolute left-28 top-[250px] lg:left-[1200px] lg:top-[280px] lg:w-[650px] w-[400px] 
+          [@media(min-width:375px)]:top-[300px] 
+          [@media(min-width:425px)]:top-[320px] 
+          `}
       />
     </div>
   );
