@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Image from "../../../component/Image";
 import ProfileImage from "../../../assets/image/profile/profilephoto.png";
+import CloseIcon from "../../../assets/logo/close.png";
 
 const ProfileEdit = ({ isEditProfile, setIsEditProfile }) => {
   useEffect(() => {
@@ -15,20 +16,21 @@ const ProfileEdit = ({ isEditProfile, setIsEditProfile }) => {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
-      <div className="bg-white rounded-lg py-2 lg:p-6 w-full max-w-sm sm:max-w-md md:max-w-[611px] shadow-lg relative transition-all">
+      <div className="bg-white rounded-lg py-5 px-5 lg:p-6 w-full max-w-sm sm:max-w-md md:max-w-[611px] shadow-lg relative transition-all">
         <button
           onClick={() => setIsEditProfile(false)}
-          className="absolute top-2 right-2 bg-black rounded-full text-white px-2 py-1 hover:bg-red-600 transition"
+          className="absolute top-5 right-5"
           aria-label="Close"
         >
-          ✕
+          <img src={CloseIcon} alt="Close" className="w-6 h-6" />
+
         </button>
 
         <div className="text-center">
           <Image
             src={ProfileImage}
             alt="Profile"
-            className="w-24 h-24 rounded-full mx-auto mb-4"
+            className="w-24 h-24 rounded-full mx-auto my-4"
           />
           <h4 className="font-inter font-bold text-[18px] sm:text-[20px] text-primary pt-2">
             Ovie Rahaman Sheikh

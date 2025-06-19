@@ -3,6 +3,7 @@ import Image from "../../../component/Image";
 import ProfileImage from "../../../assets/image/profile/profilephoto.png";
 import Button from "../../../component/Button";
 import ProfileEdit from "./ProfileEdit";
+import CloseIcon from "../../../assets/logo/close.png";
 
 const ProfileView = ({ isProfileOpen, setIsProfileOpen }) => {
   const [isEditProfile, setIsEditProfile] = useState(false);
@@ -10,13 +11,13 @@ const ProfileView = ({ isProfileOpen, setIsProfileOpen }) => {
     <>
       {isProfileOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
-          <div className="bg-white rounded-lg py-2 lg:p-6 w-full max-w-sm sm:max-w-md md:max-w-[611px] shadow-lg relative">
+          <div className="bg-white rounded-lg py-8 px-5 lg:p-6 w-full max-w-sm sm:max-w-md md:max-w-[611px] shadow-lg relative">
             {/* Close Button */}
             <button
               onClick={() => setIsProfileOpen(false)}
-              className="absolute top-2 right-2 bg-black rounded-full text-white px-2 py-1 hover:bg-red-600 transition"
+              className="absolute top-5 right-5"
             >
-              ✕
+              <img src={CloseIcon} alt="Close" className="w-6 h-6" />
             </button>
 
             {/* Profile Image & Name */}

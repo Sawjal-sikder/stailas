@@ -8,18 +8,34 @@ import { NavLink } from 'react-router-dom';
 
 
 const OutfitsDV = () => {
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const outfitsPerPage = 2; // Adjust as needed
+  const outfits = [<OutfitsList key={1} />, <OutfitsList key={2} />, <OutfitsList key={3} />]; // Example data
+
+  const totalPages = Math.ceil(outfits.length / outfitsPerPage);
+
+  const handlePrev = () => {
+    setCurrentPage((prev) => Math.max(prev - 1, 1));
+  };
+
+  const handleNext = () => {
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  };
+
+  const startIdx = (currentPage - 1) * outfitsPerPage;
+  const currentOutfits = outfits.slice(startIdx, startIdx + outfitsPerPage);
+
   return (
     <>
       <div className="px-4 md:px-16 lg:px-40 py-[22px] mb-12">
         <Header text={"Your outfits"} className="text-center" />
-        <OutfitsList />
-        <OutfitsList />
+        {currentOutfits}
         <div className="grid grid-cols-3 justify-center">
           <div></div>
           <div className="flex justify-center items-center gap-x-4">
-            <Button text={"< PREV"} />
-            <Button text={"1"} />
-            <Button text={"NEXT >"} />
+            <Button text={"< PREV"} className="rounded-lg" onClick={handlePrev} disabled={currentPage === 1} />
+            <Button text={currentPage.toString()} className="rounded-lg" />
+            <Button text={"NEXT >"} className="rounded-lg" onClick={handleNext} disabled={currentPage === totalPages} />
           </div>
           <div className="text-end">
             <div className="font-inter">

@@ -5,14 +5,23 @@ import Home from "./page/home";
 
 const Dashboard = () => {
       return (
-            <div className="relative">
+            <div className="relative min-h-screen bg-white">
                   <DashboardNav />
-                  <DashboardSidebar />
-                  <div
-                        className="absolute top-24 left-[270px] p-5 bg-[#edf3f2] rounded-tl-3xl"
-                        style={{ width: "calc(100% - 270px)" }}
-                  >
-                        <Home />
+                  <div className="flex">
+                        <DashboardSidebar />
+                        <div
+                              className="
+                                    flex-1
+                                    p-2
+                                    lg:rounded-tl-3xl
+                                    mt-4
+                                    bg-[#edf3f2]
+                                    min-w-0
+                                    "
+                              style={{ marginLeft: 0 }}
+                        >
+                              <Home />
+                        </div>
                   </div>
             </div>
       );

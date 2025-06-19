@@ -11,30 +11,27 @@ const DashboardNav = () => {
 
   return (
     <div className="relative">
-      <div className="px-10 py-5 flex justify-between items-center font-inter text-primary ">
+      <div className="px-4 sm:px-6 md:px-10 py-3 sm:py-4 md:py-5 flex flex-col sm:flex-row justify-between items-center font-inter text-primary gap-y-3 sm:gap-y-0">
         <NavLink to={"/dashboard/home"}>
-          <Image src={logo} alt="Stailas Logo" className="w-[160px]" />
+          <Image src={logo} alt="Stailas Logo" className="w-[120px] sm:w-[140px] md:w-[160px]" />
         </NavLink>
         <div
-          className="border rounded-md flex items-center gap-x-4 px-4 cursor-pointer"
+          className="border rounded-md flex items-center gap-x-2 sm:gap-x-4 px-2 sm:px-4 cursor-pointer"
           onClick={() => setOpen((prev) => !prev)}
         >
           <Image
             src={User_logo}
             alt="User Logo"
-            className="rounded-full w-[50px] p-2.5"
+            className="rounded-full w-[36px] sm:w-[44px] md:w-[50px] p-1.5 sm:p-2.5"
           />
-          <div>
-            <h4 className="text-sm font-bold">Moni Roy</h4>
-            <p className="text-[12px]">Super Admin</p>
+          <div className="hidden xs:block">
+            <h4 className="text-xs sm:text-sm font-bold">Moni Roy</h4>
+            <p className="text-[10px] sm:text-[12px]">Super Admin</p>
           </div>
-          <Image src={BorderIcon} alt="Border Icon" className="" />
+          <Image src={BorderIcon} alt="Border Icon" className="w-3 sm:w-4" />
         </div>
       </div>
       <Profile open={open} setOpen={setOpen} />
-      {/* {open && (
-        <div className="absolute right-10 top-20 bg-white shadow-md rounded-md w-40 p-2 z-50">dffsf</div>
-      )} */}
     </div>
   );
 };

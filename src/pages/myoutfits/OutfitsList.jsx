@@ -36,10 +36,10 @@ const OutfitsList = () => {
               className="rounded-lg absolute top-1 right-1 cursor-pointer"
             />
           </div>
-          
+
         </div>
         <div className="col-span-8 px-10">
-            <OutfitContain />
+          <OutfitContain />
         </div>
       </div>
     </div>
