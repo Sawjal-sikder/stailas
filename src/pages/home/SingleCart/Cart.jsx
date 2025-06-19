@@ -32,11 +32,11 @@ const Cart = () => {
           </p>
           <div className="flex">
             <NavLink to={"/outfit"}>
-            <Button
-              text="Start With One Outfit"
-              className="hidden lg:block lg:w-[345px] mt-10 p-5 rounded-lg"
-            />
-          </NavLink>
+              <Button
+                text="Start With One Outfit"
+                className="hidden lg:block lg:w-[345px] mt-10 p-5 rounded-lg"
+              />
+            </NavLink>
           </div>
         </div>
       </div>

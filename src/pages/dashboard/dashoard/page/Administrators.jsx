@@ -8,11 +8,13 @@ import Button from "../../../../component/Button";
 import AdminCreateUser from "./AdminComponent/AdminCreateUser";
 import AdminEditUser from "./AdminComponent/AdminEditUser";
 import DeleteConform from "./AdminComponent/DeleteConform";
+import ProfileAction from "./AdminComponent/ProfileAction";
 
 const Administrators = () => {
       const [createUser, setCreateUser] = useState(false);
       const [editUser, setEditUser] = useState(false);
       const [isDeleted, setIsDeleted] = useState(false);
+      const [openProfile, setOpenProfile] = useState(false);
       const userlist = [
             {
                   id: 1,
@@ -94,7 +96,7 @@ const Administrators = () => {
                                                                               </div>
                                                                               <div
                                                                                     className="cursor-pointer"
-                                                                                    onClick={() => setEditUser(true)}
+                                                                                    onClick={() => setOpenProfile(true)}
                                                                               >
                                                                                     <img
                                                                                           src={editImage}
@@ -113,7 +115,8 @@ const Administrators = () => {
                         </div>
                   </div>
                   <AdminCreateUser createUser={createUser} setCreateUser={setCreateUser} />
-                  <AdminEditUser editUser={editUser} setEditUser={setEditUser} />
+                  {/* <AdminEditUser editUser={editUser} setEditUser={setEditUser} /> */}
+                  <ProfileAction openProfile={openProfile} setOpenProfile={setOpenProfile} />
                   <DeleteConform isDeleted={isDeleted} setIsDeleted={setIsDeleted} />
             </div>
       );

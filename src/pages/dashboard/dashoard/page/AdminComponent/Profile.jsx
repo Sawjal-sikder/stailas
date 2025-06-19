@@ -4,6 +4,7 @@ import UserImage from "../../../../../assets/logo/user-icon.png";
 import Button from "../../../../../component/Button";
 import ProfileAction from "./ProfileAction";
 import AdminPasswordChange from "./AdminPasswordChange";
+import AdminAccountsSetting from "./AdminAccountsSetting";
 
 const Profile = ({ open, setOpen }) => {
       const [openProfile, setOpenProfile] = useState(false);
@@ -40,7 +41,8 @@ const Profile = ({ open, setOpen }) => {
                               </div>
                         </div>
                   )}
-                  <ProfileAction openProfile={openProfile} setOpenProfile={setOpenProfile} />
+
+                  <AdminAccountsSetting openProfile={openProfile} setOpenProfile={setOpenProfile} />
                   <AdminPasswordChange isChangePassword={isChangePassword} setIsChangePassword={setIsChangePassword} />
             </div>
       );

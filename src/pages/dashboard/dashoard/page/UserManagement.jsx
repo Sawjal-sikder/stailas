@@ -8,11 +8,13 @@ import Button from "../../../../component/Button";
 import AdminCreateUser from "./AdminComponent/AdminCreateUser";
 import AdminEditUser from "./AdminComponent/AdminEditUser";
 import DeleteConform from "./AdminComponent/DeleteConform";
+import ProfileAction from "./AdminComponent/ProfileAction";
 
 const Administrators = () => {
       const [createUser, setCreateUser] = useState(false);
       const [editUser, setEditUser] = useState(false);
       const [isDeleted, setIsDeleted] = useState(false);
+      const [openProfile, setOpenProfile] = useState(false);
 
       const userlist = [
             {
@@ -95,7 +97,7 @@ const Administrators = () => {
                                                                         </div>
                                                                         <div
                                                                               className="cursor-pointer"
-                                                                              onClick={() => setEditUser(true)}
+                                                                              onClick={() => setOpenProfile(true)}
                                                                         >
                                                                               <img
                                                                                     src={editImage}
@@ -127,7 +129,7 @@ const Administrators = () => {
                                                             <div className="flex items-center gap-2 mt-2 flex-wrap">
                                                                   <button
                                                                         className="flex items-center gap-1"
-                                                                        onClick={() => setEditUser(true)}
+                                                                        onClick={() => setOpenProfile(true)}
                                                                   >
                                                                         <img src={editImage} alt="Edit" className="w-6 h-6" />
                                                                         <span>Edit</span>
@@ -148,7 +150,8 @@ const Administrators = () => {
                         </div>
                   </div>
                   <AdminCreateUser createUser={createUser} setCreateUser={setCreateUser} />
-                  <AdminEditUser editUser={editUser} setEditUser={setEditUser} />
+                  {/* <AdminEditUser editUser={editUser} setEditUser={setEditUser} /> */}
+                  <ProfileAction openProfile={openProfile} setOpenProfile={setOpenProfile} />
                   <DeleteConform isDeleted={isDeleted} setIsDeleted={setIsDeleted} />
             </div>
       );
