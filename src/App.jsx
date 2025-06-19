@@ -45,7 +45,7 @@ function App() {
         <Route path="/admin/verify-code" element={<AdminVerifyPass />} />
         <Route path="/admin/new-password" element={<AdminNewPassword />} />
         <Route path="/admin/success" element={<AdminPasswordSuccess />} />
-        
+
         {/* Dashboard */}
         <Route path="/dashboard/home" element={<Dashboard />} />
         <Route path="/dashboard/user-management" element={<UserManagement />} />

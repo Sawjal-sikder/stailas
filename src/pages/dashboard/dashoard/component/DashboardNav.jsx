@@ -12,7 +12,7 @@ const DashboardNav = () => {
   return (
     <div className="relative">
       <div className="px-10 py-5 flex justify-between items-center font-inter text-primary ">
-        <NavLink to={"/dashoard/home"}>
+        <NavLink to={"/dashboard/home"}>
           <Image src={logo} alt="Stailas Logo" className="w-[160px]" />
         </NavLink>
         <div

@@ -1,23 +1,23 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Gauge, Users, Shield } from 'lucide-react'; 
+import { Gauge, Users, Shield } from 'lucide-react';
 
 const DashboardSidebar = () => {
       const menuItems = [
             {
                   label: 'DashBoard',
                   icon: <Gauge className="w-5 h-5" />,
-                  to: '/dashoard/home',
+                  to: '/dashboard/home',
             },
             {
                   label: 'User Management',
                   icon: <Users className="w-5 h-5" />,
-                  to: '/dashoard/user-management',
+                  to: '/dashboard/user-management',
             },
             {
                   label: 'Administrators',
                   icon: <Shield className="w-5 h-5" />,
-                  to: '/dashoard/administrators',
+                  to: '/dashboard/administrators',
             },
       ];
 
