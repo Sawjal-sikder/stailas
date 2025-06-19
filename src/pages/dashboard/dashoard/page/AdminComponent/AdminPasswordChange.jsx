@@ -1,4 +1,3 @@
-import React from 'react'
 import Button from '../../../../../component/Button';
 import CloseIcon from '../../../../../assets/logo/close.png';
 const AdminPasswordChange = ({ isChangePassword, setIsChangePassword }) => {
@@ -17,7 +16,7 @@ const AdminPasswordChange = ({ isChangePassword, setIsChangePassword }) => {
                               <input type="password" id='cPassword' required className='border border-primary px-4 py-2 rounded-md' value={"25645"} />
 
                               <div onClick={() => setIsChangePassword(false)} className="cursor-pointer">
-                                    <Button text={"Cancel"} className="mt-4 w-full bg-white border border-secondary text-black font-bold rounded-md px-4 py-2" />
+                                    <button className="mt-4 w-full bg-white border border-secondary text-secondary font-bold rounded-md px-4 py-2">Cancel</button>
                               </div>
                               <Button text={"Update"} type='submit' className="mt-4 bg-primary text-white font-bold rounded-md px-4 py-2" />
 
