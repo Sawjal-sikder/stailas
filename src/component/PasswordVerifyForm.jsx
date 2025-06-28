@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Button from "./Button";
 import Image from "./Image";
@@ -44,6 +44,44 @@ const PasswordVerifyForm = ({ email }) => {
     }
   };
 
+
+  const [resendTimer, setResendTimer] = useState(0);
+  const RESEND_TIMEOUT = 10 * 60; // 10 minutes in seconds
+
+  useEffect(() => {
+    let timer;
+    if (resendTimer > 0) {
+      timer = setInterval(() => {
+        setResendTimer((prev) => prev - 1);
+      }, 1000);
+    }
+    return () => clearInterval(timer);
+  }, [resendTimer]);
+
+  const handleResendOtp = async () => {
+    setLoading(true);
+    try {
+      await api.post("/api/resend-otp/", {
+        email: email,
+        otp_type: "registration"
+      });
+      setResendTimer(RESEND_TIMEOUT);
+      // Optionally, show a success message to the user
+    } catch (error) {
+      // Optionally, handle error (e.g., show an error message)
+      console.error("Resend OTP failed:", error.response?.data || error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const formatTime = (seconds) => {
+    const min = String(Math.floor(seconds / 60)).padStart(2, '0');
+    const sec = String(seconds % 60).padStart(2, '0');
+    return `${min}:${sec}`;
+  };
+
+
   return (
     <div className="mt-10 py-6 px-10 text-primary font-inter w-full">
       <LoadingSpinner text="Verifying code..." loading={loading} />
@@ -83,12 +121,12 @@ const PasswordVerifyForm = ({ email }) => {
 
       <div className="flex justify-center items-center gap-x-1 *:text-sm">
         <p>Didn’t receive a code?</p>
-        <NavLink
-          to="/"
+        <button
+          onClick={handleResendOtp}
           className="text-red-600 font-semibold hover:underline"
         >
           Resend
-        </NavLink>
+        </button>
       </div>
     </div>
   );
