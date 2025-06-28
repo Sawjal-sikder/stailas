@@ -19,6 +19,7 @@ import AdminPasswordSuccess from './pages/dashboard/admin/AdminPasswordSuccess.j
 import Dashboard from './pages/dashboard/dashoard/Dashboard.jsx';
 import UserManagement from './pages/dashboard/dashoard/page/UserManagement.jsx';
 import Administrators from './pages/dashboard/dashoard/page/Administrators.jsx';
+import RegVerify from './pages/auth/RegVerify.jsx';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         {/* For authentication and authorizition */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/signup/verify" element={<RegVerify />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/forgot-password/verify" element={<ForgotPassVerfify />} />
         <Route path="/new-password" element={<SetNewPassword />} />

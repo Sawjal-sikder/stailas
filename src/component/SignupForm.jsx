@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Button from "./Button";
 import FloatingLabelInput from "./FloatingLabelInput";
 import api from "../utils/api";
+import LoadingSpinner from "./base/LoadingSpinner";
 
 const SignupForm = () => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -40,18 +43,23 @@ const SignupForm = () => {
       return;
     }
 
+    setLoading(true);
     try {
       const response = await api.post('/api/register/', formData);
 
       console.log('Registration successful:', response.data);
       // Redirect or show success message
+      navigate('/signup/verify', { state: { email: formData.email } });
     } catch (error) {
       console.error('Registration failed:', error.response?.data || error.message);
       alert('Registration failed');
+    } finally {
+      setLoading(false);
     }
   };
   return (
     <div className="mt-10 py-6 px-10 text-primary font-inter w-full ">
+      <LoadingSpinner text="Creating account..." loading={loading} />
       <h2 className="text-xl sm:text-5xl font-bold pb-4">Sign up</h2>
       <p className="text-sm sm:text-sm font-extralight">
         Let’s get you all st up so you can access your personal account.

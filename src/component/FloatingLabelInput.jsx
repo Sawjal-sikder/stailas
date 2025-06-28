@@ -16,8 +16,8 @@ const FloatingLabelInput = ({
         type={type}
         id={id}
         placeholder={placeholder}
-        value={value}            // ✅ controlled input
-        onChange={onChange}      // ✅ controlled input
+        value={value}
+        onChange={onChange}
         className={`block px-4 pb-2.5 pt-4 w-full text-sm text-primary bg-white rounded-md border border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer ${inputClassName}`}
       />
       <label
