@@ -7,11 +7,11 @@ import FloatingLabelInput from "./FloatingLabelInput";
 import api from "../utils/api";
 import LoadingSpinner from "./base/LoadingSpinner";
 
-const PasswordVerifyForm = ({ email }) => {
+const PasswordVerifyForm = ({ email, otp_type }) => {
   const [loading, setLoading] = useState(false);
   const [code, setCode] = useState({
     otp_code: "",
-    otp_type: "registration",
+    otp_type: otp_type || "",
     email: email || "",
   });
 
@@ -35,10 +35,15 @@ const PasswordVerifyForm = ({ email }) => {
     setLoading(true);
     try {
       const response = await api.post("/api/verify-otp/", code);
-      navigate("/login"); // <-- Use navigate here
+      if (code.otp_type === "registration") {
+        navigate("/login");
+      } else if (code.otp_type === "password_reset") {
+        navigate("/new-password", { state: { email: code.email, otp_code: code.otp_code } });
+      }
     } catch (error) {
       console.error("Verification failed:", error.response?.data || error.message);
       alert("Verification failed. Please check your code and try again.");
+      console.log(code)
     } finally {
       setLoading(false);
     }

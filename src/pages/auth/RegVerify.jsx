@@ -3,7 +3,7 @@ import Image from '../../component/Image';
 import LoginImage from '../../assets/image/Rectangle 22.png';
 import Logo from '../../assets/logo/logo.png';
 import PasswordVerifyForm from '../../component/PasswordVerifyForm';
-import { useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const RegVerify = () => {
       const location = useLocation();
@@ -14,8 +14,10 @@ const RegVerify = () => {
 
                         {/* Left Side (Form) */}
                         <div className="w-full lg:w-5/12 flex flex-col">
-                              <Image src={Logo} alt="Logo" className="w-64 pb-20 ps-10" />
-                              <PasswordVerifyForm email={email} />
+                              <NavLink to={"/"}>
+                                    <Image src={Logo} alt="Logo" className="w-64 pb-20 ps-10" />
+                              </NavLink>
+                              <PasswordVerifyForm email={email} otp_type={"registration"} />
                         </div>
 
                         {/* Right Side (Image) */}

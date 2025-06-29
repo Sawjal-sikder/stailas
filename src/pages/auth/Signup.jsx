@@ -3,6 +3,7 @@ import Image from "../../component/Image";
 import SignupForm from "../../component/SignupForm";
 import LoginImage from "../../assets/image/Rectangle 21.png";
 import Logo from "../../assets/logo/logo.png";
+import { NavLink } from "react-router-dom";
 
 const Signup = () => {
   return (
@@ -16,7 +17,9 @@ const Signup = () => {
         {/* Right Side (Image) */}
 
         <div className="w-full lg:w-5/12 flex flex-col">
-          <Image src={Logo} alt="Logo" className="w-64 pb-10 ps-10" />
+          <NavLink to={"/"}>
+            <Image src={Logo} alt="Logo" className="w-64 pb-10 ps-10" />
+          </NavLink>
           <SignupForm />
         </div>
       </div>
