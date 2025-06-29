@@ -17,6 +17,7 @@ const SignupForm = () => {
     confirm_password: '',
     agree_terms: false,
   });
+  const [errorMsg, setErrorMsg] = useState({});
 
   const handleChange = (e) => {
     const { id, value, type, checked } = e.target;
@@ -47,12 +48,13 @@ const SignupForm = () => {
     try {
       const response = await api.post('/api/register/', formData);
 
-      console.log('Registration successful:', response.data);
+      // console.log('Registration successful:', response.data);
       // Redirect or show success message
       navigate('/signup/verify', { state: { email: formData.email } });
     } catch (error) {
-      console.error('Registration failed:', error.response?.data || error.message);
-      alert('Registration failed');
+      const errorData = error.response?.data;
+      // console.error('Registration failed:', errorData || error.message);
+      setErrorMsg(errorData || { detail: error.message });
     } finally {
       setLoading(false);
     }
@@ -64,6 +66,19 @@ const SignupForm = () => {
       <p className="text-sm sm:text-sm font-extralight">
         Let’s get you all st up so you can access your personal account.
       </p>
+      {Object.keys(errorMsg).length > 0 && (
+        <div className="bg-red-100 text-red-700 px-4 py-2 mb-4 rounded-md text-sm">
+          <ul className="list-disc list-inside">
+            {Object.entries(errorMsg).map(([field, messages]) =>
+              messages.map((msg, i) => (
+                <li key={`${field}-${i}`}>
+                  <strong>{field.replace('_', ' ')}:</strong> {msg}
+                </li>
+              ))
+            )}
+          </ul>
+        </div>
+      )}
 
       <form onSubmit={handleSubmit} className="py-8 sm:py-10">
         <div className="grid grid-cols-2 items-center">
