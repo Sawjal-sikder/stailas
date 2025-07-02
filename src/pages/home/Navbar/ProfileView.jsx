@@ -8,7 +8,7 @@ import { logout } from "../../../utils/authService";
 import { useNavigate } from "react-router-dom";
 
 const ProfileView = ({ isProfileOpen, setIsProfileOpen, profile }) => {
-  const { first_name, last_name, email, phone_number, profile_image } = profile?.data || {};
+  const { full_name, first_name, last_name, email, phone_number, profile_image } = profile?.data || {};
   const navigate = useNavigate();
   const [isEditProfile, setIsEditProfile] = useState(false);
   const handleLogout = () => {
@@ -38,7 +38,7 @@ const ProfileView = ({ isProfileOpen, setIsProfileOpen, profile }) => {
                 className="w-24 h-24 rounded-full mx-auto mb-4"
               />
               <h4 className="font-inter font-bold text-[18px] sm:text-[20px] text-primary pt-2">
-                {first_name && last_name ? `${first_name} ${last_name}` : "..."}
+                {full_name}
               </h4>
             </div>
 
@@ -46,7 +46,7 @@ const ProfileView = ({ isProfileOpen, setIsProfileOpen, profile }) => {
             <div className="py-6 px-2 sm:px-[30px] grid overflow-auto grid-cols-12 gap-3 sm:gap-4 items-center text-sm sm:text-[18px] font-inter text-primary">
               <div className="col-span-3">Name</div>
               <div className="col-span-9">
-                {first_name && last_name ? `${first_name} ${last_name}` : "..."}
+                {full_name}
               </div>
 
               <div className="col-span-3">Email</div>

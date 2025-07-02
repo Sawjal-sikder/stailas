@@ -14,6 +14,7 @@ const Navbar = () => {
 
   const [profile, setProfile] = useState({});
   // console.log(profile?.data?.first_name);
+  // console.log(profile);
 
   useEffect(() => {
     getProfile().then(data => {
