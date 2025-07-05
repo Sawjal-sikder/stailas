@@ -76,6 +76,7 @@ const ProfileView = ({ isProfileOpen, setIsProfileOpen, profile }) => {
             <ProfileEdit
               isEditProfile={isEditProfile}
               setIsEditProfile={setIsEditProfile}
+              profile={profile}
             />
 
             {/* Logout Button */}

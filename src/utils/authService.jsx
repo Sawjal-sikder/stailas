@@ -42,6 +42,21 @@ export const logout = () => {
       localStorage.removeItem('refreshToken');
 };
 
+export const UpdateProfile = async ({ formData }) => {
+      try {
+            const token = localStorage.getItem('token');
+            const response = await api.put('/api/profile/', formData, {
+                  headers: {
+                        Authorization: `Bearer ${token}`,
+                  },
+            });
+            return response.data;
+      } catch (error) {
+            console.error("Update Profile Error:", error.response || error);
+            throw error;
+      }
+};
+
 // Get user info (optional)
 export const getProfile = async () => {
       try {
