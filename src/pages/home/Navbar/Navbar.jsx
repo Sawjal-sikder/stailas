@@ -7,6 +7,7 @@ import Image from "../../../component/Image";
 import NavLinkButton from "../../../component/navbar/NavLinkButton";
 import ProfileView from "./ProfileView";
 import { getProfile } from "../../../utils/authService";
+import UserIconSvg from '../../../component/base/UserIcon'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,14 +45,25 @@ const Navbar = () => {
           <NavLinkButton to="/chat" label="Stailas Chat" />
         </div>
 
-        {/* User Info - Right on Large Screens */}
-        <div
-          onClick={() => setIsProfileOpen(true)}
-          className="hidden lg:flex bg-secondary px-6 py-2 rounded-full items-center gap-3 ml-auto cursor-pointer"
-        >
-          <Image src={profile?.data?.profile_image || UserIcon} alt="user-icon" className="w-7 h-7" />
-          <p className="text-white font-inter font-medium">{profile?.data?.first_name || "Hi"}</p>
-        </div>
+        {/* User Info or Login - Right on Large Screens */}
+        {profile?.data ? (
+          <div
+            onClick={() => setIsProfileOpen(true)}
+            className="hidden lg:flex bg-secondary px-6 py-2 rounded-full items-center gap-3 ml-auto cursor-pointer"
+          >
+            <Image src={profile?.data?.profile_image || UserIcon} alt="user-icon" className="w-7 h-7" />
+            <p className="text-white font-inter font-medium">{profile?.data?.first_name || "Hi"}</p>
+          </div>
+        ) : (
+          <NavLink
+            to="/login"
+            className="hidden lg:flex bg-secondary px-6 py-2 rounded-full items-center gap-3 ml-auto cursor-pointer"
+          >
+            {/* <Image src={UserIcon} alt="user-icon" className="w-7 h-7" /> */}
+            <UserIconSvg />
+            <p className="text-white font-inter font-medium">Login</p>
+          </NavLink>
+        )}
         <ProfileView
           isProfileOpen={isProfileOpen}
           setIsProfileOpen={setIsProfileOpen}
@@ -61,10 +73,14 @@ const Navbar = () => {
           <div className="lg:hidden mt-4 flex flex-col gap-3 font-inter text-sm">
             <NavLinkButton to="/outfit" label="Your Outfits" />
             <NavLinkButton to="/chat" label="Stailas Chat" />
-            <NavLinkButton
-              label="My Profile"
-              onClick={() => setIsProfileOpen(true)}
-            />
+            {profile?.data ? (
+              <NavLinkButton
+                label="My Profile"
+                onClick={() => setIsProfileOpen(true)}
+              />
+            ) : (
+              <NavLinkButton to="/login" label="Login" />
+            )}
           </div>
         )}
       </div>
