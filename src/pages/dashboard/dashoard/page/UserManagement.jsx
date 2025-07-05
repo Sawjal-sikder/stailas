@@ -9,33 +9,27 @@ import AdminCreateUser from "./AdminComponent/AdminCreateUser";
 import AdminEditUser from "./AdminComponent/AdminEditUser";
 import DeleteConform from "./AdminComponent/DeleteConform";
 import ProfileAction from "./AdminComponent/ProfileAction";
+import { useUser } from "../../../../utils/DashboardHook";
+import LoadingSpinner from "../../../../component/base/LoadingSpinner";
 
 const Administrators = () => {
       const [createUser, setCreateUser] = useState(false);
       const [editUser, setEditUser] = useState(false);
       const [isDeleted, setIsDeleted] = useState(false);
       const [openProfile, setOpenProfile] = useState(false);
+      const { data, error, loading } = useUser();
 
-      const userlist = [
-            {
-                  id: 1,
-                  SL: 1233,
-                  name: "Moni Roy",
-                  image: ProfileImage,
-                  email: "bockely@att.com",
-                  Phone: "(201) 555-0124",
-                  roll: "Admin",
-            },
-            {
-                  id: 2,
-                  SL: 1234,
-                  name: "John Doe",
-                  image: ProfileImage,
-                  email: "johndoe@example.com",
-                  Phone: "(202) 555-0198",
-                  roll: "user",
-            },
-      ];
+      if (loading) return <LoadingSpinner />;
+
+      const userlist = data?.map((user, index) => ({
+            id: user.id,
+            SL: index + 1 + (data.length * 0), // Adjust SL number based on your logic
+            name: user.name || "N/A",
+            image: user.profile_image || ProfileImage,
+            email: user.email,
+            Phone: user.contract || "N/A",
+            roll: user.has_access_to || 'user', // Customize according to your model
+      })) || [];
 
       return (
             <div className="relative min-h-screen bg-white">
@@ -74,11 +68,11 @@ const Administrators = () => {
                                                             <tr key={user.id} className="hover:bg-gray-50">
                                                                   <td className="px-2 md:px-4 py-2">#{user.SL}</td>
                                                                   <td className="px-2 md:px-4 py-2 flex items-center gap-2">
-                                                                        <img
+                                                                        {/* <img
                                                                               src={user.image}
                                                                               alt={user.name}
                                                                               className="w-6 h-6 md:w-8 md:h-8 object-cover"
-                                                                        />
+                                                                        /> */}
                                                                         <span className="truncate">{user.name}</span>
                                                                   </td>
                                                                   <td className="px-2 md:px-4 py-2">{user.email}</td>

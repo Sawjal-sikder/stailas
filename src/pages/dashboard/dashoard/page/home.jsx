@@ -3,24 +3,33 @@ import IconOverview1 from "../../../../assets/logo/overview/Icon.png";
 import IconOverview2 from "../../../../assets/logo/overview/Icon1.png";
 import IconOverview3 from "../../../../assets/logo/overview/Icon2.png";
 import Button from "../../../../component/Button";
+import { useDashboard } from "../../../../utils/DashboardHook";
 
 const Home = () => {
+
+  const { data, error } = useDashboard();
+
+
   const Overview = [
-    { title: "Total Users", value: 1000, text: "", icon: IconOverview1 },
+    {
+      title: "Total Users",
+      value: data?.total_users ?? "N/A",
+      text: "",
+      icon: IconOverview1,
+    },
     {
       title: "New Users",
-      value: 800,
+      value: data?.new_users ?? "N/A",
       text: "+5% from yesterday",
       icon: IconOverview2,
     },
     {
       title: "Inactive Users",
-      value: 200,
+      value: data?.anonymous_users ?? "N/A",
       text: "+5% from yesterday",
       icon: IconOverview3,
     },
   ];
-
   // Define the background colors
   const bgClasses = ["bg-[#FFE2E5]", "bg-[#EFEDFF]", "bg-[#FFF4DE]"];
 
@@ -28,7 +37,7 @@ const Home = () => {
     <div className="lg:min-h-[calc(100vh-138px)] text-primary font-inter px-2 py-4 md:px-6">
       <div className="bg-white rounded-xl px-4 md:px-7 py-5">
         <p className="text-md">Hi, Good Morning</p>
-        <h3 className="text-2xl font-semibold py-1">Moni Roy</h3>
+        <h3 className="text-2xl font-semibold py-1">{data?.full_name ?? "N/A"}</h3>
       </div>
 
       <div className="bg-white rounded-xl px-4 md:px-7 py-5 my-5">
