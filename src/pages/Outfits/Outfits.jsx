@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../home/Navbar/Navbar";
 import Footer from "../home/footer/Footer";
 import Header from "../../component/Header";
@@ -9,8 +9,43 @@ import ImagteIcon1 from '../../assets/image/outfit/photo.png'
 import ImagteIcon2 from '../../assets/image/outfit/ai.png'
 import ImagteIcon3 from '../../assets/image/outfit/light.png'
 import ImagteIcon4 from '../../assets/image/outfit/prog.png'
+import { useCreateOutfit } from "../../utils/OutfitHook";
+import LoadingSpinner from "../../component/base/LoadingSpinner";
 
 const Outfits = () => {
+  const { createOutfit, loading, error } = useCreateOutfit();
+  const [imageFile, setImageFile] = useState(null);
+
+  const handleImageChange = (file) => {
+    setImageFile(file);
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!imageFile) {
+      alert("Please upload an image file.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("user", localStorage.getItem("userId")); // your backend field name
+    formData.append("image", imageFile);
+    formData.append("context", ""); // add other fields as required
+
+    const result = await createOutfit(formData);
+
+    if (result?.success || result) {
+      console.log("Outfit analyzed:", result);
+      // optionally show success message
+    } else {
+      console.error("Failed:", result?.message || "Unknown error");
+    }
+  };
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <>
       <Navbar />
@@ -21,16 +56,16 @@ const Outfits = () => {
             Upload a photo of yourself showing an outfit and I will give you
             instant personalised style tips, favorite colors and outfit ideas.
           </p>
-          <div className="py-12 md:py-24">
-            <ImageFileUpload />
+          <form onSubmit={handleSubmit} className="py-12 md:py-24">
+            <ImageFileUpload onChange={handleImageChange} />
             <p className="text-[16px] text-primary pb-7">
               Formats accepted are .png .jpeg and .jpg
             </p>
-            <Button text={"Upload Your Looks"} className={"w-full max-w-xs"} />
+            <Button type="submit" text={"Upload Your Looks"} className={"w-full max-w-xs"} />
             <p className="text-[16px] text-primary pt-3">
               Takes less than 30 seconds
             </p>
-          </div>
+          </form>
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center pb-7 relative gap-8 md:gap-0">
           <div className="flex flex-col items-center w-full md:w-[200px] mb-8 md:mb-0">
