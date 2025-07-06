@@ -11,6 +11,8 @@ import DeleteConform from "./AdminComponent/DeleteConform";
 import ProfileAction from "./AdminComponent/ProfileAction";
 import { useUser } from "../../../../utils/DashboardHook";
 import LoadingSpinner from "../../../../component/base/LoadingSpinner";
+import MessageIcon from "../../../../component/base/MessageIcon";
+import EyeIcon from "../../../../component/base/EyeIcon";
 
 const Administrators = () => {
       const [createUser, setCreateUser] = useState(false);
@@ -23,13 +25,18 @@ const Administrators = () => {
 
       const userlist = data?.map((user, index) => ({
             id: user.id,
-            SL: index + 1 + (data.length * 0),
-            name: user.name || "N/A",
+            SL: index + 1,
+            name: user.full_name || "N/A",
             image: user.profile_image || ProfileImage,
             email: user.email,
-            Phone: user.contract || "N/A",
-            roll: user.has_access_to || 'user',
+            Phone: user.phone_number || "N/A",
+            roll: user.is_anonymous ? "Yes" : "No",
+            dateCreated: user.date_created || "N/A",
+            lastActive: user.last_active || "N/A",
+            conversation: user.conversation || "N/A",
+            outfits: user.outfits || 0,
       })) || [];
+
 
       return (
             <div className="relative min-h-screen bg-white">
@@ -41,7 +48,7 @@ const Administrators = () => {
                   >
                         <div className="min-h-[calc(100vh-138px)] text-primary font-inter">
                               <div className="bg-white rounded-xl px-2 py-3 md:px-7 md:py-5">
-                                    <div
+                                    {/* <div
                                           onClick={() => setCreateUser(true)}
                                           className="cursor-pointer mb-4"
                                     >
@@ -49,7 +56,7 @@ const Administrators = () => {
                                                 text={"+ New Administrators Profile Create "}
                                                 className="font-light rounded-md w-full sm:w-auto"
                                           />
-                                    </div>
+                                    </div> */}
                                     {/* Table for md+ screens */}
                                     <div className="overflow-x-auto hidden md:block">
                                           <table className="min-w-[700px] w-full border border-gray-200 rounded-lg overflow-hidden text-xs md:text-sm">
@@ -59,7 +66,11 @@ const Administrators = () => {
                                                             <th className="px-2 md:px-4 py-2 text-left whitespace-nowrap">Name</th>
                                                             <th className="px-2 md:px-4 py-2 text-left whitespace-nowrap">Email</th>
                                                             <th className="px-2 md:px-4 py-2 text-left whitespace-nowrap">Contact Number</th>
-                                                            <th className="px-2 md:px-4 py-2 text-left whitespace-nowrap">Has Access to</th>
+                                                            <th className="px-2 md:px-4 py-2 text-left whitespace-nowrap">Anonymous</th>
+                                                            <th className="px-2 md:px-4 py-2 text-left whitespace-nowrap">Date Created</th>
+                                                            <th className="px-2 md:px-4 py-2 text-left whitespace-nowrap">Last Active</th>
+                                                            <th className="px-2 md:px-4 py-2 text-left whitespace-nowrap">Conversation</th>
+                                                            <th className="px-2 md:px-4 py-2 text-left whitespace-nowrap">Outfits</th>
                                                             <th className="px-2 md:px-4 py-2 text-left whitespace-nowrap">Action</th>
                                                       </tr>
                                                 </thead>
@@ -67,38 +78,28 @@ const Administrators = () => {
                                                       {userlist.map((user) => (
                                                             <tr key={user.id} className="hover:bg-gray-50">
                                                                   <td className="px-2 md:px-4 py-2">#{user.SL}</td>
-                                                                  <td className="px-2 md:px-4 py-2 flex items-center gap-2">
-                                                                        {/* <img
-                                                                              src={user.image}
-                                                                              alt={user.name}
-                                                                              className="w-6 h-6 md:w-8 md:h-8 object-cover"
-                                                                        /> */}
-                                                                        <span className="truncate">{user.name}</span>
-                                                                  </td>
+                                                                  <td className="px-2 md:px-4 py-2">{user.name}</td>
                                                                   <td className="px-2 md:px-4 py-2">{user.email}</td>
                                                                   <td className="px-2 md:px-4 py-2">{user.Phone}</td>
                                                                   <td className="px-2 md:px-4 py-2">{user.roll}</td>
+                                                                  <td className="px-2 md:px-4 py-2">{new Date(user.dateCreated).toLocaleString()}</td>
+                                                                  <td className="px-2 md:px-4 py-2">{new Date(user.lastActive).toLocaleString()}</td>
+                                                                  <td className="px-2 md:px-4 py-2">
+                                                                        <div className="flex justify-center items-center">
+                                                                              <MessageIcon />
+                                                                        </div>
+                                                                  </td>
+                                                                  <td className="px-2 md:px-4 py-2">
+                                                                        <div className="flex justify-center items-center gap-x-2">
+                                                                              <p className="text-xs">{user.outfits}</p>
+                                                                              <EyeIcon />
+                                                                        </div>
+                                                                  </td>
                                                                   <td className="px-2 md:px-4 py-2 flex gap-1 items-center">
-                                                                        <div
-                                                                              className="cursor-pointer"
-                                                                              onClick={() => setIsDeleted(true)}
-                                                                        >
-                                                                              <img
-                                                                                    src={trushImage}
-                                                                                    alt="Delete"
-                                                                                    className="w-6 h-6 md:w-8 md:h-8 object-cover"
-                                                                              />
+                                                                        <div className="cursor-pointer" onClick={() => setIsDeleted(true)}>
+                                                                              <img src={trushImage} alt="Delete" className="w-6 h-6 md:w-8 md:h-8 object-cover" />
                                                                         </div>
-                                                                        <div
-                                                                              className="cursor-pointer"
-                                                                              onClick={() => setOpenProfile(true)}
-                                                                        >
-                                                                              <img
-                                                                                    src={editImage}
-                                                                                    alt="Edit"
-                                                                                    className="w-6 h-6 md:w-8 md:h-8 object-cover"
-                                                                              />
-                                                                        </div>
+
                                                                   </td>
                                                             </tr>
                                                       ))}

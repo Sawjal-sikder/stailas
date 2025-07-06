@@ -42,7 +42,44 @@ export const useUser = () => {
                   const token = localStorage.getItem('token');
                   if (!token) {
                         setError(new Error('No authentication token found.'));
-                        setLoading(false); // ✅ stop loading if no token
+                        setLoading(false);
+                        return;
+                  }
+
+                  try {
+                        const response = await api.get('/api/admin/users/', {
+                              headers: {
+                                    Authorization: `Bearer ${token}`,
+                              },
+                        });
+                        setData(response.data);
+                  } catch (err) {
+                        console.error("User API error:", err.response || err);
+                        setError(err);
+                  } finally {
+                        setLoading(false);
+                  }
+            };
+
+            fetchUser();
+      }, []);
+
+      return { data, error, loading };
+};
+
+
+
+export const useAdministrators = () => {
+      const [data, setData] = useState(null);
+      const [error, setError] = useState(null);
+      const [loading, setLoading] = useState(true);
+
+      useEffect(() => {
+            const fetchAdministrators = async () => {
+                  const token = localStorage.getItem('token');
+                  if (!token) {
+                        setError(new Error('No authentication token found.'));
+                        setLoading(false);
                         return;
                   }
 
@@ -57,11 +94,11 @@ export const useUser = () => {
                         console.error("User API error:", err.response || err);
                         setError(err);
                   } finally {
-                        setLoading(false); // ✅ always stop loading
+                        setLoading(false);
                   }
             };
 
-            fetchUser();
+            fetchAdministrators();
       }, []);
 
       return { data, error, loading };

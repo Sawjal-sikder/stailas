@@ -9,32 +9,25 @@ import AdminCreateUser from "./AdminComponent/AdminCreateUser";
 import AdminEditUser from "./AdminComponent/AdminEditUser";
 import DeleteConform from "./AdminComponent/DeleteConform";
 import ProfileAction from "./AdminComponent/ProfileAction";
+import { useAdministrators } from "../../../../utils/DashboardHook";
 
 const Administrators = () => {
       const [createUser, setCreateUser] = useState(false);
       const [editUser, setEditUser] = useState(false);
       const [isDeleted, setIsDeleted] = useState(false);
       const [openProfile, setOpenProfile] = useState(false);
-      const userlist = [
-            {
-                  id: 1,
-                  SL: 1233,
-                  name: "Moni Roy",
-                  image: ProfileImage,
-                  email: "bockely@att.com",
-                  Phone: "(201) 555-0124",
-                  roll: "Admin",
-            },
-            {
-                  id: 2,
-                  SL: 1234,
-                  name: "John Doe",
-                  image: ProfileImage,
-                  email: "johndoe@example.com",
-                  Phone: "(202) 555-0198",
-                  roll: "user",
-            },
-      ];
+
+      const { data, error, loading } = useAdministrators();
+
+      const userlist = data?.map((user, index) => ({
+            id: user.id,
+            SL: index + 1 + (data.length * 0),
+            name: user.full_name || "N/A",
+            image: user.profile_image || ProfileImage,
+            email: user.email,
+            Phone: user.contract || "N/A",
+            roll: user.has_access_to || 'user',
+      })) || [];
       return (
             <div className="relative min-h-screen bg-white">
                   <DashboardNav />
