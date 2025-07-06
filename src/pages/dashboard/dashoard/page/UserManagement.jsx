@@ -23,12 +23,12 @@ const Administrators = () => {
 
       const userlist = data?.map((user, index) => ({
             id: user.id,
-            SL: index + 1 + (data.length * 0), // Adjust SL number based on your logic
+            SL: index + 1 + (data.length * 0),
             name: user.name || "N/A",
             image: user.profile_image || ProfileImage,
             email: user.email,
             Phone: user.contract || "N/A",
-            roll: user.has_access_to || 'user', // Customize according to your model
+            roll: user.has_access_to || 'user',
       })) || [];
 
       return (

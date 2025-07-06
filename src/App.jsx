@@ -20,6 +20,7 @@ import Dashboard from './pages/dashboard/dashoard/Dashboard.jsx';
 import UserManagement from './pages/dashboard/dashoard/page/UserManagement.jsx';
 import Administrators from './pages/dashboard/dashoard/page/Administrators.jsx';
 import RegVerify from './pages/auth/RegVerify.jsx';
+import ProtectedRoute from './pages/dashboard/dashoard/component/ProtectedRoute.jsx';
 
 function App() {
   return (
@@ -49,9 +50,21 @@ function App() {
         <Route path="/admin/success" element={<AdminPasswordSuccess />} />
 
         {/* Dashboard */}
-        <Route path="/dashboard/home" element={<Dashboard />} />
-        <Route path="/dashboard/user-management" element={<UserManagement />} />
-        <Route path="/dashboard/administrators" element={<Administrators />} />
+        <Route path="/dashboard/home" element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        } />
+        <Route path="/dashboard/user-management" element={
+          <ProtectedRoute>
+            <UserManagement />
+          </ProtectedRoute>
+        } />
+        <Route path="/dashboard/administrators" element={
+          <ProtectedRoute>
+            <Administrators />
+          </ProtectedRoute>
+        } />
       </Routes>
     </Router>
   );
