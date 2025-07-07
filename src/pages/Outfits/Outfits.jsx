@@ -28,15 +28,14 @@ const Outfits = () => {
     }
 
     const formData = new FormData();
-    formData.append("user", localStorage.getItem("userId")); // your backend field name
+    formData.append("user_id", localStorage.getItem("userId"));
     formData.append("image", imageFile);
-    formData.append("context", ""); // add other fields as required
+    formData.append("context", "a wedding program");
 
     const result = await createOutfit(formData);
 
     if (result?.success || result) {
       console.log("Outfit analyzed:", result);
-      // optionally show success message
     } else {
       console.error("Failed:", result?.message || "Unknown error");
     }

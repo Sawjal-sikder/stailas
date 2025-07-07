@@ -1,6 +1,13 @@
 import React from "react";
 
 const ImageFileUpload = ({ onChange }) => {
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file && onChange) {
+      onChange(file); // Pass the File object to parent component
+    }
+  };
+
   return (
     <div className="flex items-center justify-center w-full">
       <label
@@ -33,7 +40,7 @@ const ImageFileUpload = ({ onChange }) => {
           type="file"
           accept=".png,.jpg,.jpeg"
           className="hidden"
-          onChange={(e) => onChange && onChange(e.target.files[0])}
+          onChange={handleFileChange} // ✅ This line was broken before
         />
       </label>
     </div>
