@@ -21,10 +21,12 @@ import UserManagement from './pages/dashboard/dashoard/page/UserManagement.jsx';
 import Administrators from './pages/dashboard/dashoard/page/Administrators.jsx';
 import RegVerify from './pages/auth/RegVerify.jsx';
 import ProtectedRoute from './pages/dashboard/dashoard/component/ProtectedRoute.jsx';
+import LoginProtected from './pages/dashboard/dashoard/component/LoginProtected.jsx';
 
 function App() {
   return (
     <Router>
+
       <Routes>
         {/* For Main */}
         <Route path="/" element={<Home />} />
@@ -34,7 +36,13 @@ function App() {
         <Route path="/outfit-details" element={<OutfitsDetails />} />
 
         {/* For authentication and authorizition */}
-        <Route path="/login" element={<Login />} />
+
+
+        <Route path="/login" element={
+          <LoginProtected>
+            <Login />
+          </LoginProtected>
+        } />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signup/verify" element={<RegVerify />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
