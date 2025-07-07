@@ -7,12 +7,13 @@ import OutfitsList from "../myoutfits/OutfitsList";
 import { NavLink } from 'react-router-dom';
 
 
-const OutfitsDV = () => {
+const OutfitsDV = ({ outfits }) => {
+  console.log(outfits)
   const [currentPage, setCurrentPage] = React.useState(1);
   const outfitsPerPage = 2; // Adjust as needed
-  const outfits = [<OutfitsList key={1} />, <OutfitsList key={2} />, <OutfitsList key={3} />]; // Example data
+  const outfitsList = [<OutfitsList key={1} />, <OutfitsList key={2} />, <OutfitsList key={3} />]; // Example data
 
-  const totalPages = Math.ceil(outfits.length / outfitsPerPage);
+  const totalPages = Math.ceil(outfitsList.length / outfitsPerPage);
 
   const handlePrev = () => {
     setCurrentPage((prev) => Math.max(prev - 1, 1));
@@ -23,7 +24,7 @@ const OutfitsDV = () => {
   };
 
   const startIdx = (currentPage - 1) * outfitsPerPage;
-  const currentOutfits = outfits.slice(startIdx, startIdx + outfitsPerPage);
+  const currentOutfits = outfitsList.slice(startIdx, startIdx + outfitsPerPage);
 
   return (
     <>

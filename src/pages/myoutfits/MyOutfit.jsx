@@ -1,21 +1,29 @@
 import React from "react";
 import Navbar from "../home/Navbar/Navbar";
-import Header from "../../component/Header";
-import OutfitsList from "./OutfitsList";
-import Button from "../../component/Button";
-import Image from "../../component/Image";
-import UploadImage from "../../assets/image/outfit/solar_upload-bold.png";
 import Footer from "../home/footer/Footer";
 import OutfitsDV from "../Outfits/OutfitsDV";
 import OutfitsMV from "../Outfits/OutfitsMV";
+import { useGetOutfits } from "../../utils/OutfitHook";
+import LoadingSpinner from "../../component/base/LoadingSpinner";
 
 const MyOutfit = () => {
+
+  const { getOutfits, loading, error, outfits } = useGetOutfits();
+
+  // console.log("Outfits:", outfits);
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+  if (error) {
+    return <div className="text-red-500 text-center">Error: {error.message}</div>;
+  }
+
   return (
     <div>
       <Navbar />
       {/* Desktop & Tablet View (md and up) */}
       <div className="hidden md:block">
-        <OutfitsDV />
+        <OutfitsDV outfits={outfits} />
       </div>
 
       {/* Mobile View (below md) */}
