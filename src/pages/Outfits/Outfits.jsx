@@ -11,14 +11,18 @@ import ImagteIcon3 from '../../assets/image/outfit/light.png'
 import ImagteIcon4 from '../../assets/image/outfit/prog.png'
 import { useCreateOutfit } from "../../utils/OutfitHook";
 import LoadingSpinner from "../../component/base/LoadingSpinner";
+import { useNavigate } from "react-router-dom";
 
 const Outfits = () => {
   const { createOutfit, loading, error } = useCreateOutfit();
   const [imageFile, setImageFile] = useState(null);
 
   const handleImageChange = (file) => {
+
     setImageFile(file);
   };
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -36,19 +40,18 @@ const Outfits = () => {
 
     if (result?.success || result) {
       console.log("Outfit analyzed:", result);
+      navigate("/outfit");
     } else {
       console.error("Failed:", result?.message || "Unknown error");
     }
   };
 
-  if (loading) {
-    return <LoadingSpinner />;
-  }
 
   return (
     <>
       <Navbar />
       <div className="max-w-5xl w-full mx-auto mt-10 px-4">
+        {loading && <LoadingSpinner loading={loading} text="Outfit Uploading...." />}
         <div className="max-w-2xl mx-auto text-center px-2">
           <Header text={"Instant advice from your photos"} />
           <p className="text-[20px] pt-6 px-0 md:px-14">

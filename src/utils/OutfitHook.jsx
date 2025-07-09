@@ -18,15 +18,19 @@ export const useCreateOutfit = () => {
             }
 
             try {
+
                   const response = await api.post(
                         "/api/ai/analyze-outfit/",
                         formData,
                         {
                               headers: {
                                     Authorization: `Bearer ${token}`,
+                                    "Content-Type": "multipart/form-data",
+
                               },
                         }
                   );
+
 
                   return { success: true, data: response.data };
 

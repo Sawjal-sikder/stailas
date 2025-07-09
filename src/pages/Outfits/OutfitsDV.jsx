@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../component/Header";
 import Button from "../../component/Button";
 import Image from "../../component/Image";
@@ -8,35 +8,38 @@ import { NavLink } from 'react-router-dom';
 
 
 const OutfitsDV = ({ outfits }) => {
-  console.log(outfits)
-  const [currentPage, setCurrentPage] = React.useState(1);
-  const outfitsPerPage = 2; // Adjust as needed
-  const outfitsList = [<OutfitsList key={1} />, <OutfitsList key={2} />, <OutfitsList key={3} />]; // Example data
 
-  const totalPages = Math.ceil(outfitsList.length / outfitsPerPage);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const outfitsPerPage = 2; // Adjust as needed
+  // const outfitsList = [<OutfitsList key={1} />, <OutfitsList key={2} />, <OutfitsList key={3} />]; // Example data
 
-  const handlePrev = () => {
-    setCurrentPage((prev) => Math.max(prev - 1, 1));
-  };
+  // const totalPages = Math.ceil(outfitsList.length / outfitsPerPage);
 
-  const handleNext = () => {
-    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
-  };
+  // const handlePrev = () => {
+  //   setCurrentPage((prev) => Math.max(prev - 1, 1));
+  // };
 
-  const startIdx = (currentPage - 1) * outfitsPerPage;
-  const currentOutfits = outfitsList.slice(startIdx, startIdx + outfitsPerPage);
+  // const handleNext = () => {
+  //   setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  // };
+
+  // const startIdx = (currentPage - 1) * outfitsPerPage;
+  // const currentOutfits = outfitsList.slice(startIdx, startIdx + outfitsPerPage);
 
   return (
     <>
       <div className="px-4 md:px-16 lg:px-40 py-[22px] mb-12">
         <Header text={"Your outfits"} className="text-center" />
-        {currentOutfits}
+        <OutfitsList outfits={outfits} />
         <div className="grid grid-cols-3 justify-center">
           <div></div>
           <div className="flex justify-center items-center gap-x-4">
-            <Button text={"< PREV"} className="rounded-lg" onClick={handlePrev} disabled={currentPage === 1} />
+            <Button text={"< PREV"} className="rounded-lg" />
+            <Button text={"currentPage.toString()"} className="rounded-lg" />
+            <Button text={"NEXT >"} className="rounded-lg" />
+            {/* <Button text={"< PREV"} className="rounded-lg" onClick={handlePrev} disabled={currentPage === 1} />
             <Button text={currentPage.toString()} className="rounded-lg" />
-            <Button text={"NEXT >"} className="rounded-lg" onClick={handleNext} disabled={currentPage === totalPages} />
+            <Button text={"NEXT >"} className="rounded-lg" onClick={handleNext} disabled={currentPage === totalPages} /> */}
           </div>
           <div className="text-end">
             <div className="font-inter">

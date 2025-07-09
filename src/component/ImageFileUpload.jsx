@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ImageFileUpload = ({ onChange }) => {
+  const [imageFile, setImageFile] = useState(null);
+
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file && onChange) {
       onChange(file); // Pass the File object to parent component
+
     }
+    setImageFile(file);
   };
 
   return (
@@ -33,6 +37,11 @@ const ImageFileUpload = ({ onChange }) => {
           <p className="mb-2 text-[16px] text-gray-500">
             Click or drag file to this area to upload
           </p>
+          {imageFile && (
+            <p className="mt-2 text-sm text-primary font-medium">
+              {imageFile.name}
+            </p>
+          )}
         </div>
 
         <input
@@ -40,7 +49,7 @@ const ImageFileUpload = ({ onChange }) => {
           type="file"
           accept=".png,.jpg,.jpeg"
           className="hidden"
-          onChange={handleFileChange} // ✅ This line was broken before
+          onChange={handleFileChange}
         />
       </label>
     </div>
